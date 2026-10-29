@@ -64,19 +64,20 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/activity-graph-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/activity-graph-light.gif" /><img src="./assets/animated/activity-graph-dark.gif" width="100%" alt="Animated GitHub activity line chart for the last 31 days" /></picture></p>
 
 <p align="center"><sub>ANNUAL CONTRIBUTION HEATMAP</sub></p>
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/annual-heatmap-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/annual-heatmap-light.gif" /><img src="./assets/animated/annual-heatmap-dark.gif" width="100%" alt="Animated full-width annual GitHub contribution heatmap for anshumanarchit-crypto" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/contribution-heatmap-column-reveal-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/contribution-heatmap-column-reveal-light.gif" /><img src="./assets/animated/contribution-heatmap-column-reveal-dark.gif" width="100%" alt="Transparent annual contribution heatmap; cells reveal from left to right, one week column at a time" /></picture></p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-photo-ascii-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-photo-ascii-light.gif" /><img src="./assets/animated/profile-photo-ascii-dark.gif" width="49%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/contribution-stats-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/contribution-stats-light.gif" /><img src="./assets/animated/contribution-stats-dark.gif" width="100%" alt="Animated contribution totals, streaks, active days and monthly activity from the same JSON snapshot" /></picture></p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="30%" align="center" valign="middle"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-photo-ascii-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-photo-ascii-light.gif" /><img src="./assets/animated/profile-photo-ascii-dark.gif" width="100%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture></td>
+    <td width="70%" align="center" valign="middle"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/stats-card-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/stats-card-loop-light.gif" /><img src="./assets/animated/stats-card-loop-dark.gif" width="100%" alt="Looping contribution dashboard: metrics count up, disappear row-wise, and monthly bars redraw" /></picture></td>
+  </tr>
+</table>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-leadership-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-leadership-accent-loop-light.gif" /><img src="./assets/animated/section-leadership-accent-loop-dark.gif" width="100%" alt="03 — Leadership Experience" /></picture></p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/leadership-ai-build-challenge-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/leadership-ai-build-challenge-light.gif" /><img src="./assets/animated/leadership-ai-build-challenge-dark.gif" width="100%" alt="AI Build Challenge Bengaluru 2026 — 1st runner-up, team lead" /></picture></p>
 
-**Core Team Member · Tech Club, Dr. AIT**
-
-- Led coding sprints and peer-mentoring sessions focused on **Artificial Intelligence and Full-Stack Development**.
-- Led development of a centralized club portal for event registration and resource sharing used by **500+ students**.
-- At the **AI Build Challenge, Bengaluru 2026**, served as team lead and earned **1st Runner-Up** in an AI product-building sprint organized by Hackingly and Masters’ Union Ventures, with Qualcomm as industry partner.
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/leadership-tech-club-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/leadership-tech-club-light.gif" /><img src="./assets/animated/leadership-tech-club-dark.gif" width="100%" alt="Animated Tech Club leadership banner: AI and full-stack coding sprints, peer mentoring, and a club portal used by 500+ students" /></picture></p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-skills-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-skills-accent-loop-light.gif" /><img src="./assets/animated/section-skills-accent-loop-dark.gif" width="100%" alt="04 — Technical Skills" /></picture></p>
 <p align="center"><sub>LANGUAGES · AGENT FRAMEWORKS · APPLIED AI · BACKEND · RETRIEVAL</sub></p>
@@ -109,26 +110,17 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-achievements-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-achievements-accent-loop-light.gif" /><img src="./assets/animated/section-achievements-accent-loop-dark.gif" width="100%" alt="06 — Achievements" /></picture></p>
 
-<table width="100%">
-  <tr>
-    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-ai-for-bharat-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-ai-for-bharat-light.gif" /><img src="./assets/animated/achievement-ai-for-bharat-dark.gif" width="100%" alt="Winner — AI for Bharat Hackathon" /></picture></td>
-    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-ai-build-challenge-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-ai-build-challenge-light.gif" /><img src="./assets/animated/achievement-ai-build-challenge-dark.gif" width="100%" alt="1st Runner-Up, Team Lead — AI Build Challenge Bengaluru 2026" /></picture></td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-global-academy-finalist-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-global-academy-finalist-light.gif" /><img src="./assets/animated/achievement-global-academy-finalist-dark.gif" width="100%" alt="Finalist — Global Academy National Level Hackathon" /></picture></td>
-    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-hackerrank-orchestrate-rank-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-hackerrank-orchestrate-rank-light.gif" /><img src="./assets/animated/achievement-hackerrank-orchestrate-rank-dark.gif" width="100%" alt="Rank 418 — HackerRank Orchestrate" /></picture></td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center" valign="top"><p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-hackerrank-mysql-five-star-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-hackerrank-mysql-five-star-light.gif" /><img src="./assets/animated/achievement-hackerrank-mysql-five-star-dark.gif" width="52%" alt="5-Star MySQL Badge — HackerRank" /></picture></p></td>
-  </tr>
-</table>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-ai-for-bharat-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-ai-for-bharat-light.gif" /><img src="./assets/animated/achievement-ai-for-bharat-dark.gif" width="100%" alt="Winner — AI for Bharat Hackathon" /></picture></p>
 
-- **Winner** — AI for Bharat Hackathon (HackerEarth and Government of Karnataka).
-- **Finalist** — Global Academy National Level Hackathon.
-- **1st Runner-Up, Team Lead** — AI Build Challenge, Bengaluru 2026; Hackingly and Masters’ Union Ventures, with Qualcomm as industry partner.
-- **Rank 418** — HackerRank Orchestrate.
-- **5-Star MySQL Badge** — HackerRank.
-- Participant — Bangalore Tech Summit Developer Challenge, KJU Hackathon and Hack-A-League 4.0.
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-global-academy-finalist-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-global-academy-finalist-light.gif" /><img src="./assets/animated/achievement-global-academy-finalist-dark.gif" width="100%" alt="Finalist — Global Academy National Level Hackathon" /></picture></p>
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-ai-build-challenge-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-ai-build-challenge-light.gif" /><img src="./assets/animated/achievement-ai-build-challenge-dark.gif" width="100%" alt="1st Runner-Up, Team Lead — AI Build Challenge Bengaluru 2026" /></picture></p>
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-hackerrank-orchestrate-rank-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-hackerrank-orchestrate-rank-light.gif" /><img src="./assets/animated/achievement-hackerrank-orchestrate-rank-dark.gif" width="100%" alt="Rank 418 — HackerRank Orchestrate" /></picture></p>
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-hackerrank-mysql-five-star-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-hackerrank-mysql-five-star-light.gif" /><img src="./assets/animated/achievement-hackerrank-mysql-five-star-dark.gif" width="100%" alt="5-Star MySQL Badge — HackerRank" /></picture></p>
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-additional-hackathons-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-additional-hackathons-light.gif" /><img src="./assets/animated/achievement-additional-hackathons-dark.gif" width="100%" alt="Participant — Bangalore Tech Summit Developer Challenge, KJU Hackathon, Hack-A-League 4.0" /></picture></p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-snake-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-snake-accent-loop-light.gif" /><img src="./assets/animated/section-snake-accent-loop-dark.gif" width="100%" alt="Contribution Snake" /></picture></p>
 
