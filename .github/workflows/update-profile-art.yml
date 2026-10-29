@@ -26,8 +26,11 @@ jobs:
         run: python scripts/fetch_contributions.py
       - name: Generate and validate theme-aware SVGs
         run: python scripts/generate_profile_assets.py
+      - name: Refresh local developer stats and full-width heatmap
+        run: python scripts/fix_developer_stats_heatmap.py
+
       - name: Commit refreshed activity visuals
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh profile activity visuals [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg contrib-heatmap-light.svg stats.svg stats-light.svg assets/animated/activity-graph-dark.svg assets/animated/activity-graph-light.svg"
+          file_pattern: "data/contributions.json contrib-heatmap.svg contrib-heatmap-light.svg stats.svg stats-light.svg assets/animated/activity-graph-dark.svg assets/animated/activity-graph-light.svg assets/animated/developer-overview-*.gif assets/animated/activity-graph-*.gif assets/animated/github-profile-stats-*.gif assets/animated/contribution-stats-*.gif assets/animated/technical-toolkit-*.gif assets/animated/annual-heatmap-*.gif README.md"

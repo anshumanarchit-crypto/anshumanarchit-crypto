@@ -34,16 +34,8 @@
     <img width="100%" src="https://streak-stats.demolab.com/?user=anshumanarchit-crypto&amp;hide_border=true&amp;background=0A101F&amp;stroke=22D3EE&amp;ring=2563EB&amp;fire=F59E0B&amp;currStreakLabel=22D3EE&amp;sideLabels=94A3B8&amp;currStreakNum=F8FAFC&amp;sideNums=F8FAFC&amp;dates=64748B&amp;titleColor=22D3EE&amp;card_width=1180" alt="Archit Anshuman GitHub contribution streak" />
   </picture>
   <br />
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=anshumanarchit-crypto&amp;show_icons=true&amp;include_all_commits=true&amp;hide_rank=true&amp;hide_border=true&amp;title_color=22D3EE&amp;icon_color=F59E0B&amp;text_color=94A3B8&amp;bg_color=0A101F&amp;card_width=500" />
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=anshumanarchit-crypto&amp;show_icons=true&amp;include_all_commits=true&amp;hide_rank=true&amp;hide_border=true&amp;title_color=0E7490&amp;icon_color=B45309&amp;text_color=334155&amp;bg_color=F8FAFC&amp;card_width=500" />
-    <img width="49%" src="https://github-readme-stats.vercel.app/api?username=anshumanarchit-crypto&amp;show_icons=true&amp;include_all_commits=true&amp;hide_rank=true&amp;hide_border=true&amp;title_color=22D3EE&amp;icon_color=F59E0B&amp;text_color=94A3B8&amp;bg_color=0A101F&amp;card_width=500" alt="Archit Anshuman GitHub statistics" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=anshumanarchit-crypto&amp;layout=compact&amp;langs_count=8&amp;hide_border=true&amp;title_color=22D3EE&amp;text_color=94A3B8&amp;bg_color=0A101F&amp;card_width=500" />
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=anshumanarchit-crypto&amp;layout=compact&amp;langs_count=8&amp;hide_border=true&amp;title_color=0E7490&amp;text_color=334155&amp;bg_color=F8FAFC&amp;card_width=500" />
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=anshumanarchit-crypto&amp;layout=compact&amp;langs_count=8&amp;hide_border=true&amp;title_color=22D3EE&amp;text_color=94A3B8&amp;bg_color=0A101F&amp;card_width=500" alt="Most-used programming languages" />
-  </picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/github-profile-stats-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/github-profile-stats-light.gif" /><img src="./assets/animated/github-profile-stats-dark.gif" width="49%" alt="Animated GitHub contribution metrics generated from one local data snapshot" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/technical-toolkit-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/technical-toolkit-light.gif" /><img src="./assets/animated/technical-toolkit-dark.gif" width="49%" alt="Animated resume-aligned programming languages and AI toolkit" /></picture>
 </p>
 
 ---
@@ -78,9 +70,9 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/activity-graph-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/activity-graph-light.gif" /><img src="./assets/animated/activity-graph-dark.gif" width="100%" alt="Animated GitHub activity line chart for the last 31 days" /></picture></p>
 
 <p align="center"><sub>ANNUAL CONTRIBUTION HEATMAP</sub></p>
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./contrib-heatmap.svg" /><source media="(prefers-color-scheme: light)" srcset="./contrib-heatmap-light.svg" /><img src="./contrib-heatmap.svg" width="100%" alt="Annual GitHub contribution heatmap for anshumanarchit-crypto" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/annual-heatmap-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/annual-heatmap-light.gif" /><img src="./assets/animated/annual-heatmap-dark.gif" width="100%" alt="Animated full-width annual GitHub contribution heatmap for anshumanarchit-crypto" /></picture></p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile-ascii.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile-ascii-light.svg" /><img src="./profile-ascii.svg" width="49%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture><picture><source media="(prefers-color-scheme: dark)" srcset="./stats.svg" /><source media="(prefers-color-scheme: light)" srcset="./stats-light.svg" /><img src="./stats.svg" width="49%" alt="GitHub contribution statistics and monthly activity chart" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-photo-ascii-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-photo-ascii-light.gif" /><img src="./assets/animated/profile-photo-ascii-dark.gif" width="49%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/contribution-stats-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/contribution-stats-light.gif" /><img src="./assets/animated/contribution-stats-dark.gif" width="100%" alt="Animated contribution totals, streaks, active days and monthly activity from the same JSON snapshot" /></picture></p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-leadership-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-leadership-accent-loop-light.gif" /><img src="./assets/animated/section-leadership-accent-loop-dark.gif" width="100%" alt="03 — Leadership Experience" /></picture></p>
 
