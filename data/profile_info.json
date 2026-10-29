@@ -1,0 +1,22 @@
+
+{
+  "username": "anshumanarchit-crypto",
+  "rows": [
+    ["host"],
+    ["kv", "Education", "CSE · Dr. AIT Bengaluru · 8.14/10"],
+    ["kv", "Experience", "AI Eng. Intern · Tensor & Maxwell"],
+    ["kv", "Focus", "Agentic AI, RAG, NLP Automation"],
+    ["gap"],
+    ["sec", "Core Stack"],
+    ["kv", "Languages", "Python, C++, JavaScript, C, MySQL"],
+    ["kv", "GenAI", "RAG, Semantic Retrieval, Prompt Eng."],
+    ["kv", "Agents", "LangGraph, CrewAI, AutoGen, n8n"],
+    ["kv", "AI/Data", "NLP, CV, LSTM, Transformers, XGBoost"],
+    ["kv", "Backend", "FastAPI, Node.js, Express, REST APIs"],
+    ["kv", "Tools", "GitHub, VS Code, Vercel, Ollama"],
+    ["gap"],
+    ["sec", "Featured Projects"],
+    ["bul", "UrjaNetra AI · Energy supply-chain risk"],
+    ["bul", "AyuScout AI · Patient safety signals"]
+  ]
+}
