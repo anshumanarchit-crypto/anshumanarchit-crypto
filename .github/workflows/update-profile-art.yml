@@ -1,17 +1,21 @@
-name: Refresh profile visuals
+name: Update profile art
 
-"on":
+# This workflow commits generated files back to main, so it runs by schedule or manually,
+# not on every push (avoids racing with local commits).
+on:
   schedule:
     - cron: "17 6 * * *"
   workflow_dispatch: {}
-  push:
-    branches: [main]
 
 permissions:
   contents: write
 
+concurrency:
+  group: profile-art-refresh
+  cancel-in-progress: false
+
 jobs:
-  refresh:
+  update-art:
     runs-on: ubuntu-latest
     env:
       GH_PROFILE_USER: anshumanarchit-crypto
@@ -20,14 +24,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install scraper dependencies
+      - name: Install dependencies
         run: python -m pip install -r scripts/requirements.txt
-      - name: Fetch real contribution data
+      - name: Fetch one contribution snapshot
         run: python scripts/fetch_contributions.py
-      - name: Generate and validate theme-aware SVGs
-        run: python scripts/generate_profile_assets.py
-      - name: Commit refreshed activity visuals
+      - name: Regenerate all contribution GIFs from the same snapshot
+        run: python scripts/update_contribution_visuals.py
+      - name: Commit synchronized contribution visuals
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: refresh profile activity visuals [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg contrib-heatmap-light.svg stats.svg stats-light.svg assets/animated/activity-graph-dark.svg assets/animated/activity-graph-light.svg"
+          commit_message: "chore: refresh contribution visuals [skip ci]"
+          file_pattern: "data/contributions.json assets/animated/developer-overview-*.gif assets/animated/activity-graph-*.gif assets/animated/annual-heatmap-*.gif assets/animated/contribution-stats-*.gif assets/animated/contribution-snake-*.gif"

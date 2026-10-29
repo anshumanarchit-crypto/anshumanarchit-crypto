@@ -1,129 +1,108 @@
 #!/usr/bin/env python3
-"""Generate theme-aware SVG charts/cards from the repository's real contribution JSON.
-Uses only Python's standard library. Writes XML-validated SVGs to the repository root/assets.
+"""Regenerate Archit's themed animated banner and real-photo ASCII portrait.
+Example (Windows PowerShell):
+  python scripts/generate_profile_assets.py --photo "C:\\Users\\archi\\OneDrive\\Desktop\\yes1.jpg" --banner-art "C:\\Users\\archi\\Downloads\\pic.png"
+The input images are read locally and are not copied into the repository.
 """
 from pathlib import Path
-import datetime, json, html, xml.etree.ElementTree as ET
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "contributions.json"
-PALETTES = {
- "dark": {"bg":"#0B1220","panel":"#101B2D","panel2":"#13233A","line":"#243956","text":"#F1F6FF","muted":"#9CB0CA","blue":"#5B8CFF","teal":"#51D9C4","amber":"#FFB86B","coral":"#FF8C7A","green":"#7CE6B4","grid":"#213650","cells":["#172235","#144B46","#147D70","#25A695","#51D9C4"]},
- "light": {"bg":"#F3F7FC","panel":"#FFFFFF","panel2":"#EAF1F9","line":"#D5E1EF","text":"#172941","muted":"#60748D","blue":"#285DCE","teal":"#087F78","amber":"#AD5A1A","coral":"#BC5548","green":"#147D55","grid":"#DCE6F2","cells":["#E6EDF5","#C4E9E2","#81D8C7","#3ABAA8","#087F78"]}
-}
-def e(v): return html.escape(str(v), quote=True)
-def txt(x,y,value,size,color,weight=400,anchor="start",mono=False):
-    ff='font-family="Cascadia Code,Consolas,monospace"' if mono else 'font-family="Inter,Segoe UI,Arial,sans-serif"'
-    return f'<text x="{x}" y="{y}" {ff} font-size="{size}" fill="{color}" font-weight="{weight}" text-anchor="{anchor}">{e(value)}</text>'
-def save(path,w,h,body,p):
-    css="""text{font-family:Inter,"Segoe UI",Arial,sans-serif}.mono{font-family:"Cascadia Code",Consolas,monospace}.cell{opacity:0;animation:cell .38s ease-out forwards}.bar{transform-box:fill-box;transform-origin:bottom;animation:grow .7s ease-out both}.trace{stroke-dasharray:10 12;animation:trace 16s linear infinite}@keyframes cell{to{opacity:1}}@keyframes grow{from{transform:scaleY(.12);opacity:.35}to{transform:scaleY(1);opacity:1}}@keyframes trace{to{stroke-dashoffset:-500}}"""
-    svg=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}"><title>{e(path.stem.replace("-"," "))}</title><style>{css}</style>{body}</svg>'
-    ET.fromstring(svg)
-    path.write_text(svg,encoding='utf-8')
-def load():
-    if DATA.exists():
-        try:
-            d=json.loads(DATA.read_text(encoding='utf-8'))
-            return d
-        except Exception as ex: print('Warning: unable to read contribution data:',ex)
-    # Honest non-numeric placeholder when no daily source data is present.
-    return {"username":"anshumanarchit-crypto","generated_at":"","total_contributions":0,"active_days":0,"current_streak":{"length":0},"longest_streak":{"length":0},"best_day":{"count":0},"monthly":[],"days":[]}
-def level(n): return 0 if n<=0 else 1 if n<=1 else 2 if n<=3 else 3 if n<=5 else 4
+import argparse
+from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageEnhance
 
-def heatmap(d,theme):
-    p=PALETTES[theme]; days=d.get('days',[])
-    w,h=1200,254
-    b=[f'<rect width="{w}" height="{h}" rx="17" fill="{p["panel"]}" stroke="{p["line"]}"/>',f'<rect x="0" y="0" width="1200" height="36" rx="17" fill="{p["panel2"]}"/>',f'<rect x="0" y="24" width="1200" height="12" fill="{p["panel2"]}"/>']
-    for i,c in enumerate(['#FF6B6B','#FFCA6A',p['teal']]): b.append(f'<circle cx="19" cy="18" r="4.5" fill="{c}"/>')
-    b.append(txt(600,22,'anshumanarchit-crypto  /  contribution field',11,p['muted'],600,'middle',True))
-    if not days:
-        b.append(txt(600,118,'Contribution data not found',21,p['text'],700,'middle'))
-        b.append(txt(600,147,'Run fetch_contributions.py, then generate_profile_assets.py',12,p['muted'],500,'middle',True))
-        save(ROOT/('contrib-heatmap.svg' if theme=='dark' else 'contrib-heatmap-light.svg'),w,h,''.join(b),p); return
-    # Use Sunday-first columns to match a GitHub contribution calendar.
-    parsed=[]
-    for item in days:
-        dt=datetime.date.fromisoformat(item['date']); parsed.append((dt,int(item.get('count',0))))
-    first=parsed[0][0]; start=first-datetime.timedelta(days=(first.weekday()+1)%7)
-    last=parsed[-1][0]; weeks=((last-start).days+7)//7
-    cell=13; gap=4; x0=48; y0=68
-    months=[]; prior=None
-    daymap={dt:cnt for dt,cnt in parsed}
-    for wi in range(weeks):
-        date=start+datetime.timedelta(days=wi*7)
-        if date.month!=prior:
-            months.append((wi,date.strftime('%b'))); prior=date.month
-    for wi,m in months:
-        b.append(txt(x0+wi*(cell+gap),57,m,10,p['muted'],500))
-    for row,day in enumerate(['S','M','T','W','T','F','S']): b.append(txt(22,y0+row*(cell+gap)+10,day,9,p['muted'],500,'middle',True))
-    for wi in range(weeks):
-        for r in range(7):
-            dt=start+datetime.timedelta(days=wi*7+r)
-            if dt not in daymap: continue
-            cnt=daymap[dt]; lv=level(cnt); x=x0+wi*(cell+gap); y=y0+r*(cell+gap)
-            b.append(f'<rect class="cell" style="animation-delay:{wi*0.012+r*0.018:.3f}s" x="{x}" y="{y}" width="{cell}" height="{cell}" rx="3" fill="{p["cells"][lv]}"><title>{e(dt.isoformat())}: {cnt} contributions</title></rect>')
-    # footer and honest totals from source
-    total=d.get('total_contributions',sum(x['count'] for x in days)); active=d.get('active_days',sum(1 for x in days if x['count']>0))
-    b.append(f'<line x1="18" y1="202" x2="1182" y2="202" stroke="{p["line"]}"/>')
-    b.append(txt(24,225,f'{total} contributions in the last year',13,p['text'],700,mono=True))
-    b.append(txt(465,225,f'{active} active days',12,p['teal'],600,mono=True))
-    b.append(txt(900,225,'LESS',9,p['muted'],500,'end',True))
-    for i,c in enumerate(p['cells']): b.append(f'<rect x="{914+i*17}" y="213" width="13" height="13" rx="3" fill="{c}"/>')
-    b.append(txt(1005,225,'MORE',9,p['muted'],500,'start',True))
-    save(ROOT/('contrib-heatmap.svg' if theme=='dark' else 'contrib-heatmap-light.svg'),w,h,''.join(b),p)
-
-def stats(d,theme):
-    p=PALETTES[theme]; monthly=d.get('monthly',[])[-12:]; total=int(d.get('total_contributions',0)); active=int(d.get('active_days',0)); current=int((d.get('current_streak') or {}).get('length',0)); longest=int((d.get('longest_streak') or {}).get('length',0)); best=int((d.get('best_day') or {}).get('count',0))
-    w,h=600,390
-    b=[f'<rect width="600" height="390" rx="18" fill="{p["panel"]}" stroke="{p["line"]}"/>',f'<rect x="0" y="0" width="600" height="38" rx="18" fill="{p["panel2"]}"/>',f'<rect x="0" y="25" width="600" height="13" fill="{p["panel2"]}"/>']
-    for i,c in enumerate(['#FF6B6B','#FFCA6A',p['teal']]): b.append(f'<circle cx="20" cy="19" r="4.5" fill="{c}"/>')
-    b.append(txt(300,23,'PROFILE TELEMETRY  /  12-MONTH WINDOW',10,p['muted'],650,'middle',True))
-    cards=[('CONTRIBUTIONS',str(total),p['blue']),('ACTIVE DAYS',str(active),p['teal']),('CURRENT STREAK',f'{current}d',p['amber'])]
-    for i,(k,v,c) in enumerate(cards):
-        x=18+i*190
-        b.append(f'<rect x="{x}" y="53" width="174" height="77" rx="12" fill="{p["panel2"]}" stroke="{p["line"]}"/>')
-        b.append(txt(x+13,76,k,9,p['muted'],650,mono=True))
-        b.append(txt(x+13,111,v,27,c,750))
-    b.append(txt(22,162,'MONTHLY CONTRIBUTION PULSE',10,p['muted'],700,mono=True))
-    plotx,ploty,plotw,ploth=32,184,536,116
-    vals=[int(x.get('total',0)) for x in monthly] or [0]*12; maxv=max(vals) if max(vals)>0 else 1
-    bw=25; g=18
-    for i,v in enumerate(vals[-12:]):
-        hh=max(3,(v/maxv)*80); x=plotx+i*(bw+g); y=ploty+85-hh
-        b.append(f'<rect class="bar" style="animation-delay:{i*0.055:.2f}s" x="{x}" y="{y:.1f}" width="{bw}" height="{hh:.1f}" rx="5" fill="{p["teal"]}" fill-opacity="{0.6+0.4*(v/maxv):.2f}"/>')
-        if monthly and i<len(monthly):
-            month=datetime.datetime.strptime(monthly[i].get('month','2000-01'),'%Y-%m').strftime('%b')
-        else: month=''
-        b.append(txt(x+bw/2,ploty+103,month,8,p['muted'],500,'middle',True))
-    b.append(f'<line x1="24" y1="317" x2="576" y2="317" stroke="{p["line"]}"/>')
-    b.append(txt(24,340,f'LONGEST STREAK  {longest} DAYS',10,p['muted'],650,mono=True))
-    b.append(txt(575,340,f'BEST DAY  {best}',10,p['amber'],700,'end',True))
-    b.append(txt(24,370,'Data: GitHub public contribution calendar',9,p['muted'],500,mono=True))
-    b.append(txt(575,370,'AUTO-SYNC',9,p['teal'],700,'end',True))
-    save(ROOT/('stats.svg' if theme=='dark' else 'stats-light.svg'),w,h,''.join(b),p)
-
-def activity(d,theme):
-    p=PALETTES[theme]; monthly=d.get('monthly',[])[-12:]; vals=[int(x.get('total',0)) for x in monthly]; labels=[datetime.datetime.strptime(x.get('month','2000-01'),'%Y-%m').strftime('%b') for x in monthly]
-    w,h=1200,240
-    b=[f'<rect width="1200" height="240" rx="16" fill="{p["panel"]}" stroke="{p["line"]}"/>',txt(24,30,'CONTRIBUTION SIGNAL  /  MONTHLY',11,p['muted'],700,mono=True)]
-    if vals:
-        maxv=max(vals) or 1; points=[]
-        for i,v in enumerate(vals):
-            x=46+i*(1108/max(1,len(vals)-1)); y=166-(v/maxv)*105; points.append((x,y))
-        path=' '.join(f'{x:.1f},{y:.1f}' for x,y in points)
-        b.append(f'<polyline points="{path}" fill="none" stroke="{p["teal"]}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1400" stroke-dashoffset="1400"><animate attributeName="stroke-dashoffset" from="1400" to="0" dur="2.2s" fill="freeze"/></polyline>')
-        for i,((x,y),v) in enumerate(zip(points,vals)):
-            b.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4.5" fill="{p["blue"]}" class="pulse"><title>{v} contributions</title></circle>')
-            b.append(txt(x,199,labels[i] if i<len(labels) else '',9,p['muted'],500,'middle',True))
-    else:
-        b.append(txt(600,126,'Run the contribution fetcher to populate this graph',14,p['muted'],500,'middle',True))
-    b.append(f'<path d="M24 211 H1176" stroke="{p["line"]}"/>')
-    b.append(txt(24,229,'MONTHLY ACTIVITY',9,p['muted'],650,mono=True)); b.append(txt(1176,229,'ANSUMANARCHIT-CRYPTO',9,p['teal'],700,'end',True))
-    save(ROOT/'assets'/'animated'/f'activity-graph-{theme}.svg',w,h,''.join(b),p)
-
+ROOT=Path(__file__).resolve().parents[1]
+DARK={'bg':'#080D18','bg2':'#0B1729','panel':'#0E1D32','panel2':'#12253D','border':'#263E5B','text':'#F3F7FF','muted':'#9DB2CB','dim':'#6C829D','blue':'#60A5FA','cyan':'#22D3EE','teal':'#2DD4BF','violet':'#A78BFA','amber':'#FBBF24','green':'#34D399','empty':'#172235','pill':'#122940'}
+LIGHT={'bg':'#F5F8FC','bg2':'#E8F0FA','panel':'#FFFFFF','panel2':'#F2F7FD','border':'#CFDDED','text':'#132A45','muted':'#4E647E','dim':'#72869D','blue':'#2563EB','cyan':'#0891B2','teal':'#0F9F92','violet':'#7C3AED','amber':'#B45309','green':'#15803D','empty':'#E7EDF4','pill':'#E6F4FC'}
+FONTS={
+ 'mono':[r'C:\Windows\Fonts\consola.ttf',r'C:\Windows\Fonts\lucon.ttf','/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'],
+ 'monob':[r'C:\Windows\Fonts\consolab.ttf','/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf'],
+ 'sansb':[r'C:\Windows\Fonts\segoeuib.ttf','/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'],
+ 'sans':[r'C:\Windows\Fonts\segoeui.ttf','/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf']}
+def font(size,kind='sans'):
+ for path in FONTS.get(kind,[]):
+  try:return ImageFont.truetype(path,size)
+  except Exception:pass
+ return ImageFont.load_default()
+def hx(s):
+ s=s.lstrip('#');return tuple(int(s[i:i+2],16) for i in (0,2,4))
+def rounded(d,box,r,fill,outline=None,width=1):d.rounded_rectangle(box,radius=r,fill=fill,outline=outline,width=width)
+def grad(im,a,b):
+ d=ImageDraw.Draw(im);w,h=im.size;ca,cb=hx(a),hx(b)
+ for x in range(w):
+  t=x/max(1,w-1);col=tuple(round(ca[i]*(1-t)+cb[i]*t) for i in range(3));d.line((x,0,x,h),fill=col)
+def save_gif(frames,path,duration=115,colors=128):
+ path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+ pal=frames[len(frames)//2].convert('RGB').quantize(colors=colors,method=Image.Quantize.MEDIANCUT)
+ q=[im.convert('RGB').quantize(palette=pal,dither=Image.Dither.NONE) for im in frames]
+ q[0].save(path,save_all=True,append_images=q[1:],duration=duration,loop=0,optimize=True,disposal=2)
+def matrix(path,cols,rows,transparent=False):
+ im=Image.open(path).convert('RGBA')
+ if not transparent:
+  gray=ImageOps.autocontrast(ImageOps.grayscale(im),cutoff=1);gray=ImageEnhance.Contrast(gray).enhance(1.4);im=Image.merge('RGBA',(gray,gray,gray,im.getchannel('A')))
+ im=im.resize((cols,rows),Image.Resampling.LANCZOS);pix=im.load();chars=' .,:-=+*#%@';out=[]
+ for y in range(rows):
+  row=[]
+  for x in range(cols):
+   r,g,b,a=pix[x,y];lum=.299*r+.587*g+.114*b
+   if transparent and a<48:row.append((' ',lum,a));continue
+   if not transparent and lum>248:row.append((' ',lum,a));continue
+   idx=max(0,min(len(chars)-1,int((255-lum)/255*(len(chars)-1))))
+   row.append((chars[idx],lum,a))
+  out.append(row)
+ return out
+def art_color(lum,C,cartoon=False):
+ if cartoon:
+  if lum<80:return C['blue']
+  if lum<145:return C['cyan']
+  if lum<205:return C['teal']
+  return C['text']
+ if lum<60:return C['blue']
+ if lum<105:return C['cyan']
+ if lum<155:return C['teal']
+ if lum<210:return C['muted']
+ return C['text']
+def draw_ascii(d,mat,x,y,cw,lh,fnt,rows,C,cartoon=False):
+ for ri,row in enumerate(mat[:max(0,rows)]):
+  for ci,(ch,lum,a) in enumerate(row):
+   if ch!=' ':d.text((x+ci*cw,y+ri*lh),ch,font=fnt,fill=art_color(lum,C,cartoon))
+def banner_frame(C,light,art,idx,total=56):
+ W,H=850,440;im=Image.new('RGB',(W,H),C['bg']);grad(im,C['bg'],C['bg2']);d=ImageDraw.Draw(im)
+ rounded(d,(1,1,W-2,H-2),20,C['bg'],C['border'],2);d.rectangle((1,1,W-2,35),fill=C['panel2']);d.line((1,35,W-2,35),fill=C['border'],width=1)
+ for k,col in enumerate(['#FF6B6B','#FBBF24','#34D399']):d.ellipse((17+14*k,14,23+14*k,20),fill=col)
+ d.text((60,10),'profile.sh --live ~',font=font(11,'mono'),fill=C['muted']);d.text((770,10),'PROFILE / 01',font=font(9,'monob'),fill=C['cyan'])
+ rounded(d,(15,48,300,399),18,C['panel'],C['border'],2);rounded(d,(29,64,285,391),14,C['bg'],C['cyan'],2);rounded(d,(308,48,835,399),18,C['panel'],C['border'],2)
+ rounded(d,(322,61,821,94),10,C['panel2'],C['border'],1);d.text((336,72),'SYSTEM.INFO',font=font(9,'monob'),fill=C['cyan']);rounded(d,(751,69,807,87),8,C['pill'],C['teal'],1);d.ellipse((760,75,766,81),fill=C['green']);d.text((772,73),'LIVE',font=font(8,'monob'),fill=C['teal'])
+ d.rectangle((30,358,284,388),fill=C['bg']);d.text((42,366),'ASCII PORTRAIT',font=font(8,'monob'),fill=C['cyan']);d.text((42,378),'IMAGE -> MONOSPACE GLYPHS',font=font(7,'mono'),fill=C['dim']);d.text((43,406),'● PROFILE PIPELINE READY',font=font(8,'mono'),fill=C['teal']);d.text((322,375),'AGENTIC AI / NLP / RAG',font=font(8,'mono'),fill=C['muted']);d.text((756,375),'BUILD / 2026',font=font(8,'monob'),fill=C['amber'])
+ n=len(art);reveal_end=18;hold_end=40;erase_end=53
+ visible=round((idx+1)/reveal_end*n) if idx<reveal_end else n if idx<hold_end else round(max(0,(erase_end-idx)/(erase_end-hold_end)*n)) if idx<erase_end else 0
+ cw,lh=5.2,8.3;aw=len(art[0])*cw;ah=n*lh;draw_ascii(d,art,42+(240-aw)/2,71+(278-ah)/2,cw,lh,font(8,'mono'),visible,C,True)
+ rounded(d,(646,130,811,149),9,C['bg'],C['violet'],1);d.text((655,134),'@anshumanarchit-crypto',font=font(8,'mono'),fill=C['violet'])
+ welcome='WELCOME';name="I'M ARCHIT ANSHUMAN"
+ if idx<=10:title=welcome[:max(0,min(len(welcome),idx))];ts=34
+ elif idx<=14:title=welcome;ts=34
+ elif idx<=16:title=welcome[:max(0,len(welcome)-(idx-14)*4)];ts=34
+ elif idx<=34:title=name[:round((idx-16)/18*len(name))];ts=25
+ else:title=name;ts=25
+ tf=font(ts,'sansb');d.text((334,99),title,font=tf,fill=C['cyan'] if not light else C['blue'])
+ if idx in range(0,11) or idx in range(17,35):
+  tx=334+d.textbbox((0,0),title,font=tf)[2]+3;d.rounded_rectangle((tx,103,tx+3,ts+106),radius=1,fill=C['amber'])
+ if idx>=31:
+  rows=[('ROLE','AI ENGINEERING INTERN'),('FOCUS','AGENTIC AI · NLP · RAG'),('EDUCATION','B.E. CSE · 2023—2027'),('CGPA','8.14 / 10'),('LOCATION','BENGALURU, INDIA')]
+  y=159
+  for lab,val in rows:d.text((334,y),lab,font=font(8,'mono'),fill=C['dim']);d.line((385,y+6,405,y+6),fill=C['border'],width=1);d.text((416,y-1),val,font=font(9,'monob'),fill=C['text']);y+=35
+ base=428;xx=8+(idx%total)/total*825;d.line((7,base,843,base),fill=C['border'],width=1);d.line((8,base,xx,base),fill=C['blue'],width=2);d.line((max(8,xx-90),base,min(842,xx+35),base),fill=C['cyan'],width=2);d.ellipse((xx-4,base-4,xx+4,base+4),fill=C['cyan']);d.ellipse((xx-2,base-2,xx+2,base+2),fill=C['amber']);return im
+def portrait_frame(C,light,mat,idx,total=81):
+ W,H=840,880;im=Image.new('RGB',(W,H),C['bg']);grad(im,C['bg'],C['bg2']);d=ImageDraw.Draw(im);rounded(d,(5,5,W-5,H-5),18,C['panel'],C['border'],2);d.rectangle((6,6,W-6,42),fill=C['panel2']);d.line((6,42,W-6,42),fill=C['border'],width=1)
+ for k,col in enumerate(['#FF6B6B','#FBBF24','#34D399']):d.ellipse((20+13*k,18,26+13*k,24),fill=col)
+ d.text((W/2,18),'anshumanarchit-crypto@github:~$ ./portrait.sh',font=font(11,'mono'),fill=C['muted'],anchor='mt')
+ nr=len(mat);visible=idx+1 if idx<58 else nr if idx<66 else max(0,nr-int((idx-65)/12*nr)) if idx<78 else 0
+ cw,lh=10.5,11;aw=len(mat[0])*cw;ah=nr*lh;draw_ascii(d,mat,(W-aw)/2,70+(700-ah)/2,cw,lh,font(10,'mono'),visible,C,False)
+ d.line((18,H-54,W-18,H-54),fill=C['border'],width=1);d.text((25,H-39),'ARCHIT ANSHUMAN',font=font(10,'monob'),fill=C['teal']);d.text((W-25,H-39),'REAL PHOTO / ASCII GLYPHS',font=font(9,'mono'),fill=C['muted'],anchor='rt');xx=30+(idx%32)*(W-60)/31;d.line((30,H-13,xx,H-13),fill=C['blue'],width=2);d.line((max(30,xx-70),H-13,min(W-30,xx+30),H-13),fill=C['cyan'],width=2);return im
 def main():
-    d=load()
-    # write dynamic visuals and keep the user-supplied portrait/banner artwork intact
-    for t in ('dark','light'):
-        heatmap(d,t); stats(d,t); activity(d,t)
-    print('Generated and XML-validated: contrib-heatmap.svg, contrib-heatmap-light.svg, stats.svg, stats-light.svg, activity graph variants.')
-if __name__=='__main__': main()
+ ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--photo',required=True);ap.add_argument('--banner-art',required=True);args=ap.parse_args();photo=Path(args.photo).expanduser();art=Path(args.banner_art).expanduser()
+ if not photo.is_file():ap.error(f'Photo not found: {photo}')
+ if not art.is_file():ap.error(f'Banner artwork not found: {art}')
+ am=matrix(art,45,33,True);pm=matrix(photo,70,58,False)
+ for C,suf,light in [(DARK,'dark',False),(LIGHT,'light',True)]:
+  save_gif([banner_frame(C,light,am,i) for i in range(56)],ROOT/f'banner-{suf}.gif',120,128)
+  save_gif([portrait_frame(C,light,pm,i) for i in range(81)],ROOT/'assets'/'animated'/f'profile-photo-ascii-{suf}.gif',85,112)
+ print('Generated theme-aware banner and looping ASCII portrait GIFs. Source images were not copied.')
+if __name__=='__main__':main()

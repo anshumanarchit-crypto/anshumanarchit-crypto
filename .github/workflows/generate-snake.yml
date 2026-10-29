@@ -1,30 +1,37 @@
-name: Generate contribution snake
+name: Generate Snake Animation
 
-"on":
-  schedule:
-    - cron: "23 6 * * *"
+on:
   workflow_dispatch: {}
   push:
     branches: [main]
+  schedule:
+    - cron: "0 */12 * * *"
 
 permissions:
   contents: write
 
+concurrency:
+  group: contribution-snake
+  cancel-in-progress: true
+
 jobs:
-  snake:
+  generate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: Platane/snk@v3
+      - name: Generate this profile's snake SVGs
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: anshumanarchit-crypto
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           outputs: |
-            dist/github-snake.svg?palette=github-light&color_snake=%23087F78&color_dots=%23EAF1F9,%23C4E9E2,%2381D8C7,%233ABAA8,%23087F78
-            dist/github-snake-dark.svg?palette=github-dark&color_snake=%2351D9C4&color_dots=%23172235,%23144B46,%23147D70,%2325A695,%2351D9C4
-      - name: Publish snake to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+            dist/github-snake.svg?palette=github-light&color_snake=%230891B2&color_dots=%23ebedf0,%23cbd5e1,%2393c5fd,%236366f1,%230891B2
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=%2310B981&color_dots=%232d3343,%234b5563,%237c3aed,%23a78bfa,%2322d3ee
+      - name: Publish generated snake SVGs to output branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: output
+          publish_dir: ./dist
+          force_orphan: true
+          enable_jekyll: false
+          full_commit_message: "Refresh contribution snake assets"

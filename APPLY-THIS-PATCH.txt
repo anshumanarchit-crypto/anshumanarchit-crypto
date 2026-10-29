@@ -1,0 +1,20 @@
+HEADER FIX FOR anshumanarchit-crypto
+
+Copy these three files into the ROOT of:
+C:\Users\archi\Documents\profile-readme-build
+
+Overwrite README.md, banner-dark.gif, and banner-light.gif.
+The README references the original animated terminal banner GIFs rather than the generic agent-network SVGs.
+The GIFs retain the original terminal/ASCII portrait style, but the label is changed to @anshumanarchit-crypto and the footer copy is resume-aligned.
+
+Then run:
+  git diff -- README.md banner-dark.gif banner-light.gif
+  git add README.md banner-dark.gif banner-light.gif
+  git status
+  git commit -m "Restore reference terminal banner for Archit Anshuman"
+  git push
+
+If git push is rejected because origin/main advanced, run:
+  git fetch origin
+  git pull --rebase origin main
+Resolve any conflict before pushing. Do not use --force.

@@ -1,67 +1,52 @@
-# Deploy the Archit Anshuman Animated Profile Kit
+# Archit Anshuman Animated Profile — Apply and Validate
 
-This ZIP is an **overlay for the existing** `anshumanarchit-crypto/anshumanarchit-crypto` profile repository. It is not a separate project to publish under a different repository name.
+This package is based on the uploaded reference profile's terminal-card layout and looping GIF approach, with Archit's resume content. It includes no `.git` directory and does not include the original source photos.
 
-## Design
+## Important architecture
+- `banner-dark.gif` / `banner-light.gif`: looping terminal banner. The left ASCII art is derived from the supplied cartoon laptop character; the right panel cycles `WELCOME` then `I'M ARCHIT ANSHUMAN` and uses `anshumanarchit-crypto` in the prompt pill.
+- `assets/animated/profile-photo-ascii-*.gif`: looping top-to-bottom ASCII portrait derived from Archit's real photo. Only the generated GIFs are included; the source JPG stays private.
+- All contribution-dependent GIFs (`developer-overview`, `activity-graph`, `annual-heatmap`, `contribution-stats`, `contribution-snake`) are generated from the same `data/contributions.json`, so the counts agree with each other.
+- Section headers are actual looping dark/light GIFs, not unanimated SVG badges.
+- The Achievements section is graphics-only and includes AI for Bharat, AI Build Challenge, Global Academy finalist, HackerRank Orchestrate Rank 418, and the HackerRank 5-Star MySQL badge.
 
-- Theme-aware banner with animated cobalt/teal signal lines and resume-matched title.
-- A custom ASCII SVG made from the supplied laptop-character illustration. The original PNG is deliberately **not** included, so the public repo need not expose the source image.
-- Theme-aware activity, stats, project, skills, leadership and achievement visuals.
-- The leadership graphic is **AI Build Challenge — Bengaluru 2026, 1st Runner-Up, Team Lead**; AyuScout is used only as a project.
-- LinkedIn, email and HackerRank links use Archit Anshuman's supplied URLs.
-- The SVG generator uses Python's standard library and XML-validates every file it writes.
-
-## Apply it on Windows PowerShell
-
-1. Download and extract this ZIP.
-2. Copy/merge the ZIP's contents into `C:\Users\archi\Documents\profile-readme-build`. Allow `README.md`, `.gitignore`, `scripts/requirements.txt` and `.github/workflows/update-profile-art.yml` to be replaced. Copy the new `assets` folder and `scripts/generate_profile_assets.py`. Keep the existing `data/contributions.json` and `scripts/fetch_contributions.py`.
-3. Open PowerShell in the project directory and activate your venv:
-
+## Apply on Windows
+1. Extract this ZIP to a temporary folder.
+2. Merge the extracted contents into `C:\Users\archi\Documents\profile-readme-build`, overwriting matching profile files. Keep the existing `.git` folder and `.venv` folder. The ZIP does not contain original source images.
+3. Open PowerShell at the project root and run:
    ```powershell
    cd "$HOME\Documents\profile-readme-build"
    .\.venv\Scripts\Activate.ps1
-   $env:GH_PROFILE_USER = "anshumanarchit-crypto"
    python -m pip install -r scripts/requirements.txt
+   $env:GH_PROFILE_USER = "anshumanarchit-crypto"
    python scripts/fetch_contributions.py
-   python scripts/generate_profile_assets.py
+   python scripts/update_contribution_visuals.py
+   python scripts/validate_profile_assets.py
    ```
-
-4. Confirm these files exist and open without XML parse errors:
-
+   The fetch and renderer scripts update all contribution charts from one JSON snapshot, so heatmap/stats totals agree. Do not stage source images such as `yes1.jpg`, `yes1(2).jpg`, `pic.png`, `source-photo.png` or `source-prepped.png`.
+4. Review, commit, synchronize, and push:
    ```powershell
-   Test-Path .\profile-ascii.svg
-   Test-Path .\profile-ascii-light.svg
-   Test-Path .\stats.svg
-   Test-Path .\stats-light.svg
-   Test-Path .\contrib-heatmap.svg
-   Test-Path .\contrib-heatmap-light.svg
-   python -c "import xml.etree.ElementTree as ET; from pathlib import Path; files=[p for p in Path('.').rglob('*.svg') if p.name not in {'info-card.svg','ascii-portrait.svg'}]; [ET.parse(p) for p in files]; print(f'Validated {len(files)} SVG files')"
-   ```
-
-5. Review `.gitignore`; don't commit your source character PNG or any private photos. The SVG portrait is already included.
-6. Remove already tracked original photos from the Git index if you don't want them public:
-
-   ```powershell
-   git rm --cached --ignore-unmatch yes1.jpg source-prepped.png source-photo.png pic.png info-card.svg ascii-portrait.svg
-   Remove-Item .\info-card.svg, .\ascii-portrait.svg -ErrorAction SilentlyContinue
-   ```
-
-   This removes the superseded broken info card from the working folder and removes those files from the next repository version. The `git rm --cached` operation alone does not remove local files. It does not erase copies from earlier Git history.
-7. Review and push:
-
-   ```powershell
-   git add .
    git status
-   git commit -m "Refresh Archit Anshuman animated profile"
+   git add -A
+   git diff --cached --check
+   git diff --cached --stat
+   git commit -m "Refine Archit Anshuman animated profile"
+   git fetch origin
+   git pull --rebase origin main
    git push
    ```
+   If `pull --rebase` reports a conflict, stop and resolve it deliberately. Never use `git push --force`.
+5. Open the repository's **Actions** tab. Run **Update profile art** manually once. It also runs daily. This workflow commits contribution GIFs back to `main`, so it intentionally does not trigger on every main push; after a manual workflow run makes a remote commit, run `git fetch origin` / `git pull --rebase origin main` before your next local push.
 
-8. On GitHub open **Actions**. Run **Refresh profile visuals** and **Generate contribution snake** manually once. Both workflows need repository `contents: write` permission. The contribution-snake images are published to the `output` branch; they may be unavailable until that first workflow succeeds.
-9. Hard-refresh the profile page with `Ctrl+F5`.
+## Regenerate the personal portrait/banners locally
+The package includes generated GIFs and does not include your source photo or cartoon PNG. If you later want to regenerate those GIFs, run this locally (adjust the paths if you moved the files):
+```powershell
+python scripts/generate_profile_assets.py --photo "$HOME\OneDrive\Desktop\yes1.jpg" --banner-art "$HOME\Downloads\pic.png"
+python scripts/validate_profile_assets.py
+```
+The script reads the source images locally and writes only the derived GIFs into the repository; it does not copy the source images into the ZIP or repository. Do not run this generator in GitHub Actions.
 
-## Notes
+## Update contributions later
+GitHub Actions uses `GH_PROFILE_USER=anshumanarchit-crypto`, fetches one public contribution snapshot, and regenerates the developer overview, activity line, annual heatmap, stats card and contribution snake from that same JSON. It does not regenerate your personal portrait/banner, because source photos are intentionally private.
 
-- The repository username in terminal chrome is `anshumanarchit-crypto`; the display name is `Archit Anshuman`.
-- The monthly graph and contribution heatmaps are generated from `data/contributions.json`, not fabricated profile statistics.
-- The skills/project/achievement cards are designed for both GitHub light and dark themes using `<picture>` source selection.
-- The README includes the resume's own reported AyuScout metrics with clear attribution as resume-reported estimates.
+## Note about public/private contributions
+The included contribution JSON is a public-calendar snapshot as of 2026-10-29. If GitHub has changed counts since then, run the workflow to fetch a fresh snapshot; all cards are regenerated together to keep their totals synchronized.
