@@ -66,7 +66,7 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 <p align="center"><sub>ANNUAL CONTRIBUTION HEATMAP</sub></p>
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/annual-heatmap-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/annual-heatmap-light.gif" /><img src="./assets/animated/annual-heatmap-dark.gif" width="100%" alt="Animated full-width annual GitHub contribution heatmap for anshumanarchit-crypto" /></picture></p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-photo-ascii-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-photo-ascii-light.gif" /><img src="./assets/animated/profile-photo-ascii-dark.gif" width="49%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/contribution-stats-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/contribution-stats-light.gif" /><img src="./assets/animated/contribution-stats-dark.gif" width="100%" alt="Animated contribution totals, streaks, active days and monthly activity from the same JSON snapshot" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-photo-ascii-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-photo-ascii-light.gif" /><img src="./assets/animated/profile-photo-ascii-dark.gif" width="49%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture><picture><source media="(prefers-color-scheme: dark)" srcset="./stats.svg?v=2" /><source media="(prefers-color-scheme: light)" srcset="./stats-light.svg?v=2" /><img src="./stats.svg?v=2" width="49%" alt="Animated contribution statistics with count-up metrics and growing monthly bars" /></picture></p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-leadership-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-leadership-accent-loop-light.gif" /><img src="./assets/animated/section-leadership-accent-loop-dark.gif" width="100%" alt="03 — Leadership Experience" /></picture></p>
 
@@ -85,7 +85,7 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-projects-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-projects-accent-loop-light.gif" /><img src="./assets/animated/section-projects-accent-loop-dark.gif" width="100%" alt="05 — Featured Projects" /></picture></p>
 <p align="center"><sub>APPLIED AI · REAL-TIME SIGNALS · DECISION SUPPORT · PRIVACY-AWARE RETRIEVAL</sub></p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-urjanetra.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/project-urjanetra-light.svg" /><img src="./assets/project-urjanetra.svg" width="100%" alt="UrjaNetra AI — energy supply-chain risk and forecasting" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/project-urjanetra-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/project-urjanetra-light.gif" /><img src="./assets/animated/project-urjanetra-dark.gif" width="100%" alt="UrjaNetra AI — energy supply-chain risk and forecasting" /></picture></p>
 
 ### UrjaNetra AI — Energy Supply Chain Decision Support System
 
@@ -97,7 +97,7 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 
 ---
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-ayuscout.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/project-ayuscout-light.svg" /><img src="./assets/project-ayuscout.svg" width="100%" alt="AyuScout AI — real-time patient safety signal detection" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/project-ayuscout-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/project-ayuscout-light.gif" /><img src="./assets/animated/project-ayuscout-dark.gif" width="100%" alt="AyuScout AI — real-time patient safety signal detection" /></picture></p>
 
 ### AyuScout AI — Real-Time Patient Safety Signal Detection Platform
 
@@ -111,8 +111,15 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 
 <table width="100%">
   <tr>
-    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/achievement-ai-for-bharat.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/achievement-ai-for-bharat-light.svg" /><img src="./assets/achievement-ai-for-bharat.svg" width="100%" alt="Winner — AI for Bharat Hackathon, HackerEarth and Government of Karnataka" /></picture></td>
-    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/achievement-ai-build-challenge.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/achievement-ai-build-challenge-light.svg" /><img src="./assets/achievement-ai-build-challenge.svg" width="100%" alt="1st Runner-Up, Team Lead — AI Build Challenge Bengaluru 2026" /></picture></td>
+    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-ai-for-bharat-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-ai-for-bharat-light.gif" /><img src="./assets/animated/achievement-ai-for-bharat-dark.gif" width="100%" alt="Winner — AI for Bharat Hackathon" /></picture></td>
+    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-ai-build-challenge-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-ai-build-challenge-light.gif" /><img src="./assets/animated/achievement-ai-build-challenge-dark.gif" width="100%" alt="1st Runner-Up, Team Lead — AI Build Challenge Bengaluru 2026" /></picture></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-global-academy-finalist-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-global-academy-finalist-light.gif" /><img src="./assets/animated/achievement-global-academy-finalist-dark.gif" width="100%" alt="Finalist — Global Academy National Level Hackathon" /></picture></td>
+    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-hackerrank-orchestrate-rank-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-hackerrank-orchestrate-rank-light.gif" /><img src="./assets/animated/achievement-hackerrank-orchestrate-rank-dark.gif" width="100%" alt="Rank 418 — HackerRank Orchestrate" /></picture></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="top"><p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/achievement-hackerrank-mysql-five-star-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/achievement-hackerrank-mysql-five-star-light.gif" /><img src="./assets/animated/achievement-hackerrank-mysql-five-star-dark.gif" width="52%" alt="5-Star MySQL Badge — HackerRank" /></picture></p></td>
   </tr>
 </table>
 
