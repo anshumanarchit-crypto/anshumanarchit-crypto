@@ -1,10 +1,19 @@
+# Python / local environment
 .venv/
 __pycache__/
 *.py[cod]
-# Keep original/private source images out of the public repo
+
+# Keep original portrait source files private
 pic.png
 yes1.jpg
-yes1(2).jpg
 source-photo.png
 source-prepped.png
-# Keep source image files private
+
+# Superseded generated assets from the previous profile design
+info-card.svg
+ascii-portrait.svg
+
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/

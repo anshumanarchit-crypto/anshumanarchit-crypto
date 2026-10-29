@@ -1,110 +1,123 @@
 #!/usr/bin/env python3
-"""Fetch the public GitHub contribution calendar for the configured profile owner."""
-from __future__ import annotations
-import datetime as dt
+"""
+Scrape real daily contribution counts from GitHub's public, unauthenticated
+contributions endpoint (the same fragment the profile page itself uses) and
+write data/contributions.json with the raw days plus derived stats
+(current streak, longest streak, best day, monthly totals).
+
+No token, no auth, no GraphQL -- just the public HTML GitHub already serves.
+Run daily by .github/workflows/update-profile-art.yml.
+"""
+import datetime
 import json
 import os
 import re
-from pathlib import Path
+import sys
 
 import requests
 from bs4 import BeautifulSoup
 
-USERNAME = os.environ.get("GH_PROFILE_USER", "anshumanarchit-crypto").strip()
-OUT = Path(__file__).resolve().parents[1] / "data" / "contributions.json"
+USERNAME = os.environ.get("GH_PROFILE_USER", "AiyzoxX")
 URL = f"https://github.com/users/{USERNAME}/contributions"
+OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "contributions.json")
 
 
-def fetch_days() -> list[dict]:
-    response = requests.get(URL, headers={"User-Agent": "anshumanarchit-crypto-profile/1.0"}, timeout=30)
-    response.raise_for_status()
-    soup = BeautifulSoup(response.text, "html.parser")
+def fetch_days():
+    resp = requests.get(URL, headers={"User-Agent": "profile-readme-bot/1.0"}, timeout=30)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, "html.parser")
+
     cells = soup.select("td.ContributionCalendar-day")
     if not cells:
-        # GitHub has changed this markup before; fail clearly instead of silently writing false zeros.
-        raise RuntimeError("No contribution calendar cells found. GitHub may have changed its public calendar markup.")
+        print("no calendar cells found -- github markup may have changed", file=sys.stderr)
+        sys.exit(1)
+
     days = []
-    for cell in cells:
-        date = cell.get("data-date")
+    for td in cells:
+        date = td.get("data-date")
         if not date:
             continue
-        tooltip_id = cell.get("id")
-        tooltip = soup.find("tool-tip", attrs={"for": tooltip_id}) if tooltip_id else None
-        label = (tooltip.get_text(" ", strip=True) if tooltip else "")
-        if re.search(r"no contributions", label, re.I):
+        td_id = td.get("id")
+        tooltip_el = soup.find("tool-tip", attrs={"for": td_id}) if td_id else None
+        text = tooltip_el.get_text(strip=True) if tooltip_el else ""
+        if re.search(r"no contributions", text, re.I):
             count = 0
         else:
-            match = re.search(r"(\d[\d,]*)\s+contributions?", label, re.I)
-            if match:
-                count = int(match.group(1).replace(",", ""))
-            elif label:
-                count = 0
-            else:
-                # Some calendar markup includes the contribution count in aria-label.
-                label = " ".join(str(cell.get(k, "")) for k in ("aria-label", "data-level"))
-                match = re.search(r"(\d[\d,]*)\s+contributions?", label, re.I)
-                count = int(match.group(1).replace(",", "")) if match else 0
-        days.append({"date": date, "count": count, "level": int(cell.get("data-level") or 0)})
-    days.sort(key=lambda item: item["date"])
-    if not days:
-        raise RuntimeError("GitHub returned no dated contribution cells.")
+            m = re.match(r"(\d+)", text)
+            count = int(m.group(1)) if m else 0
+        days.append({"date": date, "count": count})
+
+    days.sort(key=lambda d: d["date"])
     return days
 
 
-def build_snapshot(days: list[dict]) -> dict:
-    total = sum(item["count"] for item in days)
-    active = sum(item["count"] > 0 for item in days)
-    best = max(days, key=lambda item: item["count"])
-
-    # Treat the last completed contribution day as the streak endpoint when today is empty,
-    # matching the semantics used by common GitHub streak summaries.
+def compute_current_streak(days):
     idx = len(days) - 1
-    if idx >= 0 and days[idx]["count"] == 0:
-        idx -= 1
-    current_len = 0
+    if days[idx]["count"] == 0:
+        idx -= 1  # today isn't over yet -- don't break the streak on it
+    streak = 0
+    end_idx = idx
     while idx >= 0 and days[idx]["count"] > 0:
-        current_len += 1
+        streak += 1
         idx -= 1
-    current = {
-        "length": current_len,
-        "start": days[idx + 1]["date"] if current_len else None,
-        "end": days[len(days) - 1 if days[-1]["count"] > 0 else len(days) - 2]["date"] if current_len else None,
-    }
+    start_idx = idx + 1
+    if streak == 0:
+        return 0, None, None
+    return streak, days[start_idx]["date"], days[end_idx]["date"]
 
-    longest_len = run = 0
+
+def compute_longest_streak(days):
+    longest = run = 0
     longest_start = longest_end = None
-    run_start = 0
-    for i, item in enumerate(days):
-        if item["count"] > 0:
+    run_start_idx = None
+    for i, d in enumerate(days):
+        if d["count"] > 0:
             if run == 0:
-                run_start = i
+                run_start_idx = i
             run += 1
-            if run > longest_len:
-                longest_len = run
-                longest_start, longest_end = days[run_start]["date"], item["date"]
+            if run > longest:
+                longest = run
+                longest_start = days[run_start_idx]["date"]
+                longest_end = days[i]["date"]
         else:
             run = 0
-    monthly_totals: dict[str, int] = {}
-    for item in days:
-        month = item["date"][:7]
-        monthly_totals[month] = monthly_totals.get(month, 0) + item["count"]
+    return longest, longest_start, longest_end
+
+
+def build_data(days):
+    total = sum(d["count"] for d in days)
+    active_days = sum(1 for d in days if d["count"] > 0)
+    best = max(days, key=lambda d: d["count"])
+    cur_len, cur_start, cur_end = compute_current_streak(days)
+    long_len, long_start, long_end = compute_longest_streak(days)
+
+    monthly = {}
+    for d in days:
+        key = d["date"][:7]
+        monthly[key] = monthly.get(key, 0) + d["count"]
+    monthly_list = [{"month": k, "total": v} for k, v in sorted(monthly.items())]
+
     return {
         "username": USERNAME,
-        "generated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "range": {"start": days[0]["date"], "end": days[-1]["date"]},
         "total_contributions": total,
-        "active_days": active,
-        "avg_per_active_day": round(total / active, 1) if active else 0,
-        "current_streak": current,
-        "longest_streak": {"length": longest_len, "start": longest_start, "end": longest_end},
+        "active_days": active_days,
+        "avg_per_active_day": round(total / active_days, 1) if active_days else 0,
+        "current_streak": {"length": cur_len, "start": cur_start, "end": cur_end},
+        "longest_streak": {"length": long_len, "start": long_start, "end": long_end},
         "best_day": {"date": best["date"], "count": best["count"]},
-        "monthly": [{"month": month, "total": count} for month, count in sorted(monthly_totals.items())],
+        "monthly": monthly_list,
         "days": days,
     }
 
 
 if __name__ == "__main__":
-    snapshot = build_snapshot(fetch_days())
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(snapshot, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Updated {OUT}: {snapshot['total_contributions']} contributions / {snapshot['active_days']} active days")
+    days = fetch_days()
+    data = build_data(days)
+    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
+    with open(OUT_PATH, "w") as f:
+        json.dump(data, f, indent=2)
+    print(f"wrote {OUT_PATH}: {data['total_contributions']} contributions, "
+          f"current streak {data['current_streak']['length']}, "
+          f"longest streak {data['longest_streak']['length']}")
