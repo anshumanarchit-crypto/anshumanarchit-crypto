@@ -7,13 +7,7 @@
   </picture>
 </p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-tagline-dark.gif" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-tagline-light.gif" />
-    <img src="./assets/animated/profile-tagline-dark.gif" width="100%" alt="Building agentic AI workflows; engineering NLP automation pipelines; building explainable AI systems" />
-  </picture>
-</p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-tagline-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-tagline-light.gif" /><img src="./assets/animated/profile-tagline-dark.gif" width="100%" alt="Building agentic AI workflows; engineering NLP automation pipelines; building explainable AI systems" /></picture></p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/archit-anshuman-921249324/"><img src="./assets/linkedin-icon.svg" width="22" height="22" alt="LinkedIn" /> LinkedIn</a>
@@ -25,7 +19,7 @@
 
 ---
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-developer-stats-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-developer-stats-accent-loop-light.gif" /><img src="./assets/animated/section-developer-stats-accent-loop-dark.gif" width="100%" alt="GitHub developer statistics" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-developer-stats-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-developer-stats-accent-loop-light.gif" /><img src="./assets/animated/section-developer-stats-accent-loop-dark.gif" width="100%" alt="GitHub Developer Stats" /></picture></p>
 
 <p align="center">
   <picture>

@@ -18,7 +18,8 @@ errors=[]
 for p in svgs:
     try: ET.parse(p)
     except ET.ParseError as e: errors.append(f"{p.relative_to(ROOT)}: {e}")
-print(f"README local image refs checked: {len(set(re.findall(r'(?:src|srcset)=\"([^\"]+)\"', text)))} raw attributes")
+ref_matches = re.findall(r'(?:src|srcset)="([^"]+)"', text)
+print(f"README local image refs checked: {len(set(ref_matches))} raw attributes")
 print(f"SVG files validated: {len(svgs)}")
 if missing:
     print("Missing local assets:")
