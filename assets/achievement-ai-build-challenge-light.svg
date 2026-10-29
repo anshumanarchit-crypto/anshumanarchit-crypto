@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="142" viewBox="0 0 840 142" role="img" aria-label="First runner-up at AI Build Challenge · Bengaluru 2026, September 2026">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#D97706"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect x="1" y="1" width="838" height="140" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+<path d="M22 110 C145 138 230 122 340 122 S590 137 816 103" fill="none" stroke="url(#g)" stroke-width="2" opacity="0.8"/>
+<circle cx="75" cy="60" r="40" fill="url(#g)" fill-opacity="0.14" stroke="#FBBF24" stroke-width="1.5"/>
+<circle cx="75" cy="53" r="17" fill="none" stroke="#FBBF24" stroke-width="3"/><path d="M65 68L60 88L75 80L90 88L85 68" fill="none" stroke="#FBBF24" stroke-width="3" stroke-linejoin="round"/><path d="M75 43L78 50L86 51L80 56L82 64L75 60L68 64L70 56L64 51L72 50Z" fill="#FBBF24"/>
+<text x="140" y="39" fill="#FBBF24" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">1ST RUNNER-UP</text>
+<text x="140" y="68" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">AI Build Challenge · Bengaluru INDUSTRY PARTNER</text>
+<text x="140" y="96" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="16">Team Lead · Hackingly · Masters’ Union Ventures</text>
+<line x1="565" y1="28" x2="565" y2="104" stroke="#CBD5E1" stroke-width="1.5"/>
+<text x="600" y="63" fill="#FBBF24" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" filter="url(#glow)">QUALCOMM</text>
+<text x="602" y="90" fill="#0F172A" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">INDUSTRY PARTNER</text>
+<circle id="achievement-loop-dot" cx="30" cy="110" r="3.2" fill="#22D3EE"><animateMotion dur="7s" repeatCount="indefinite" path="M 22,110 C 145,138 230,122 340,122 S590,137 816,103"/><animate attributeName="r" values="2.2;3.8;2.2" dur="2.8s" repeatCount="indefinite"/></circle><circle id="loop-spark-injected" cx="24" cy="113.6" r="3.0" fill="#A78BFA"><animateMotion dur="6s" repeatCount="indefinite" path="M 20,113.6 L 820.0,113.6"/><animate attributeName="r" values="2.2;4.0;2.2" dur="2.5s" repeatCount="indefinite"/></circle></svg>

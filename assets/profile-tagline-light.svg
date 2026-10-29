@@ -1,13 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="76" viewBox="0 0 1200 76" role="img"><title>profile tagline light</title><style>
-      text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
-      .mono { font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace; }
-      .pulse { animation: pulse 2.8s ease-in-out infinite; transform-origin:center; }
-      .dash { stroke-dasharray: 12 14; animation: travel 14s linear infinite; }
-      .rise { opacity:1; animation: rise .7s ease-out both; }
-      .bar { transform-box: fill-box; transform-origin: bottom; animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }
-      @keyframes pulse { 0%,100% { opacity:.55; } 50% { opacity:1; } }
-      @keyframes travel { to { stroke-dashoffset:-520; } }
-      @keyframes rise { from { opacity:.45; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
-      @keyframes grow { from { transform:scaleY(.08); opacity:.35; } to { transform:scaleY(1); opacity:1; } }
-      
-    </style><rect x="0" y="0" width="1200" height="76" rx="14" fill="#FFFFFF" stroke="#D5E1EF"/><rect x="0" y="0" width="6" height="76" rx="3" fill="#087F78"/><circle cx="38" cy="38" r="5" fill="#285DCE" class="pulse"/><text x="57" y="32" font-size="16" fill="#172941" font-weight="750" text-anchor="start" letter-spacing=".65" class="">BUILDING AGENTIC WORKFLOWS, RELIABLE AI &amp; EXPLAINABLE DECISIONS</text><text x="57" y="54" font-size="12" fill="#60748D" font-weight="500" text-anchor="start" letter-spacing="0" class="mono">Applied AI  /  NLP &amp; RAG  /  Automation  /  Decision Support</text><path d="M1035 24 h105 M1053 38 h87 M1071 52 h69" stroke="#285DCE" stroke-width="2" stroke-linecap="round" opacity=".7" class="dash"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="66" viewBox="0 0 1200 66" role="img" aria-labelledby="title desc">
+<title id="title">Archit Anshuman — rotating professional tagline</title>
+<desc id="desc">A theme-aware animated tagline cycling between agentic AI workflows, NLP automation, and explainable AI systems.</desc>
+<defs>
+ <linearGradient id="taglineGradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#82A8FF"/><stop offset=".48" stop-color="#55D6FF"/><stop offset="1" stop-color="#B5A2FF"/></linearGradient>
+ <linearGradient id="taglineRule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#82A8FF" stop-opacity="0"/><stop offset=".5" stop-color="#55D6FF" stop-opacity=".72"/><stop offset="1" stop-color="#B5A2FF" stop-opacity="0"/></linearGradient>
+</defs>
+<style>
+ .phrase{font-family:'Segoe UI',Arial,sans-serif;font-size:21px;font-weight:650;letter-spacing:1.75px;fill:url(#taglineGradient)}
+ .rule{stroke-dasharray:700;stroke-dashoffset:700;animation:ruleDraw 9s ease-in-out infinite}
+ .spark{animation:sparkTravel 4.5s ease-in-out infinite alternate}
+ @keyframes ruleDraw{0%,5%{stroke-dashoffset:700;opacity:.2}30%,57%{stroke-dashoffset:0;opacity:.8}100%{stroke-dashoffset:-700;opacity:.15}}
+ @keyframes sparkTravel{from{transform:translateX(0);opacity:.2}to{transform:translateX(680px);opacity:1}}
+ @media (prefers-reduced-motion:reduce){.rule,.spark{animation:none}.rule{stroke-dashoffset:0}.spark{opacity:.5}}
+</style>
+<!-- First phrase stays visible if a renderer disables SVG animation. -->
+<text class="phrase" x="600" y="30" text-anchor="middle" opacity="1">BUILDING AGENTIC AI WORKFLOWS<animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.24;.29;.95;1" dur="12s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 -5;0 -5;0 0" keyTimes="0;.24;.29;.95;1" dur="12s" repeatCount="indefinite"/></text>
+<text class="phrase" x="600" y="30" text-anchor="middle" opacity="0">ENGINEERING NLP AUTOMATION<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.28;.33;.57;.62;1" dur="12s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 5;0 5;0 0;0 0;0 -5;0 -5" keyTimes="0;.28;.33;.57;.62;1" dur="12s" repeatCount="indefinite"/></text>
+<text class="phrase" x="600" y="30" text-anchor="middle" opacity="0">BUILDING EXPLAINABLE AI SYSTEMS<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.61;.66;.94;1" dur="12s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 5;0 5;0 0;0 0;0 -5" keyTimes="0;.61;.66;.94;1" dur="12s" repeatCount="indefinite"/></text>
+<path d="M170 48 H1030" stroke="url(#taglineRule)" stroke-width="1.2" stroke-linecap="round"/>
+<path class="rule" d="M260 48 H940" stroke="url(#taglineGradient)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+<circle class="spark" cx="260" cy="48" r="2.2" fill="#55D6FF"/>
+</svg>

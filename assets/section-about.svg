@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="68" viewBox="0 0 1200 68" role="img" aria-labelledby="title desc">
+<title id="title">01 — About</title>
+<desc id="desc">Minimal editorial section heading with a colored index, line icon, and animated gradient rule.</desc>
+<defs>
+ <linearGradient id="ruleGradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#82A8FF" stop-opacity=".9"/><stop offset=".46" stop-color="#55D6FF" stop-opacity=".7"/><stop offset="1" stop-color="#B5A2FF" stop-opacity=".03"/></linearGradient>
+ <filter id="iconGlow" x="-40%" y="-50%" width="180%" height="200%"><feGaussianBlur stdDeviation="1.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+ .heading{opacity:1;animation:headingIn .62s cubic-bezier(.2,.8,.2,1) .05s forwards}
+ .line{stroke-dasharray:920;stroke-dashoffset:920;animation:lineIn 1.15s cubic-bezier(.2,.8,.2,1) .18s forwards}
+ .dot{animation:dotPulse 3.2s ease-in-out infinite}
+ @keyframes headingIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+ @keyframes lineIn{to{stroke-dashoffset:0}}
+ @keyframes dotPulse{0%,100%{opacity:.45}50%{opacity:1}}
+ @media (prefers-reduced-motion:reduce){.heading,.line,.dot{animation:none;opacity:1;stroke-dashoffset:0}}
+</style>
+<g class="heading">
+ <text x="18" y="35" font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#82A8FF" letter-spacing="1.4">01</text>
+ <g transform="translate(63 13)" stroke="#82A8FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#iconGlow)"><circle cx="12" cy="12" r="8.2"/><path d="M8.5 12.2l2.2 2.2 4.8-5"/></g>
+ <text x="105" y="37" font-family="'Segoe UI',Arial,sans-serif" font-size="24" font-weight="650" fill="#E9EEFA" letter-spacing=".25">About</text>
+ <path d="M105 53 H1180" stroke="#28334A" stroke-width="1" stroke-opacity=".76"/>
+ <path class="line" d="M105 53 H520" stroke="url(#ruleGradient)" stroke-width="2.1" stroke-linecap="round" fill="none"/>
+ <circle class="dot" cx="1180" cy="53" r="2.4" fill="#82A8FF"/>
+</g>
+</svg>

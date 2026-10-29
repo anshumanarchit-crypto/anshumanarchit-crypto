@@ -9,9 +9,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-tagline.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/profile-tagline-light.svg" />
-    <img src="./assets/profile-tagline.svg" width="100%" alt="Building agentic AI workflows, engineering NLP automation, building explainable AI systems" />
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-tagline-dark.gif" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-tagline-light.gif" />
+    <img src="./assets/animated/profile-tagline-dark.gif" width="100%" alt="Building agentic AI workflows; engineering NLP automation pipelines; building explainable AI systems" />
   </picture>
 </p>
 
@@ -25,7 +25,7 @@
 
 ---
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-developer-stats-accent.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-developer-stats-accent-light.svg" /><img src="./assets/section-developer-stats-accent.svg" width="100%" alt="GitHub developer statistics" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-developer-stats-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-developer-stats-accent-loop-light.gif" /><img src="./assets/animated/section-developer-stats-accent-loop-dark.gif" width="100%" alt="GitHub developer statistics" /></picture></p>
 
 <p align="center">
   <picture>
@@ -48,13 +48,21 @@
 
 ---
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-about-accent.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-about-accent-light.svg" /><img src="./assets/section-about-accent.svg" width="100%" alt="01 — About" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-about-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-about-accent-loop-light.gif" /><img src="./assets/animated/section-about-accent-loop-dark.gif" width="100%" alt="01 — About" /></picture></p>
 
 I'm **Archit Anshuman**, a Computer Science and Engineering undergraduate at **Dr. Ambedkar Institute of Technology, Bengaluru** (2023–2027, **CGPA 8.14/10**). I build applied AI systems, agentic workflows and NLP-driven automation that translate complex information into useful, explainable outcomes.
 
 My work spans **LLM orchestration, retrieval-augmented generation, semantic retrieval, machine learning and backend APIs**. I care about reliable execution, observability, privacy-aware data handling and engineering decisions that can be explained.
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/about-meta-animated.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/about-meta-animated-light.svg" /><img src="./assets/about-meta-animated.svg" width="100%" alt="B.E. Computer Science and Engineering · CGPA 8.14/10 · Bengaluru, India" /></picture></p>
+
+### Education
+
+**Dr. Ambedkar Institute of Technology, Bengaluru**  
+B.E. Computer Science & Engineering · **CGPA 8.14/10** · 2023–2027
+
+**The Aditya Birla Public School**  
+Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 
 ### Professional Experience
 
@@ -64,7 +72,7 @@ My work spans **LLM orchestration, retrieval-augmented generation, semantic retr
 - Developed NLP-driven automation with prompt engineering, context-aware reasoning and workflow orchestration for decision support and business-process efficiency.
 - Implemented **Agent Performance Monitoring (APM)** and **Agent Process Control (APC)** to improve reliability, observability, execution efficiency and maintainability.
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-contributions-accent.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-contributions-accent-light.svg" /><img src="./assets/section-contributions-accent.svg" width="100%" alt="02 — Contributions" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-contributions-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-contributions-accent-loop-light.gif" /><img src="./assets/animated/section-contributions-accent-loop-dark.gif" width="100%" alt="02 — Contributions" /></picture></p>
 
 <p align="center"><sub>RECENT ACTIVITY · LAST 31 DAYS</sub></p>
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/activity-graph-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/activity-graph-light.gif" /><img src="./assets/animated/activity-graph-dark.gif" width="100%" alt="Animated GitHub activity line chart for the last 31 days" /></picture></p>
@@ -74,9 +82,9 @@ My work spans **LLM orchestration, retrieval-augmented generation, semantic retr
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile-ascii.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile-ascii-light.svg" /><img src="./profile-ascii.svg" width="49%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture><picture><source media="(prefers-color-scheme: dark)" srcset="./stats.svg" /><source media="(prefers-color-scheme: light)" srcset="./stats-light.svg" /><img src="./stats.svg" width="49%" alt="GitHub contribution statistics and monthly activity chart" /></picture></p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-leadership-accent.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-leadership-accent-light.svg" /><img src="./assets/section-leadership-accent.svg" width="100%" alt="03 — Leadership Experience" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-leadership-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-leadership-accent-loop-light.gif" /><img src="./assets/animated/section-leadership-accent-loop-dark.gif" width="100%" alt="03 — Leadership Experience" /></picture></p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/leadership-ai-build-challenge-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/leadership-ai-build-challenge-light.gif" /><img src="./assets/leadership-ai-build-challenge.svg" width="100%" alt="AI Build Challenge Bengaluru 2026 — 1st runner-up, team lead" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/leadership-ai-build-challenge-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/leadership-ai-build-challenge-light.gif" /><img src="./assets/animated/leadership-ai-build-challenge-dark.gif" width="100%" alt="AI Build Challenge Bengaluru 2026 — 1st runner-up, team lead" /></picture></p>
 
 **Core Team Member · Tech Club, Dr. AIT**
 
@@ -84,11 +92,11 @@ My work spans **LLM orchestration, retrieval-augmented generation, semantic retr
 - Led development of a centralized club portal for event registration and resource sharing used by **500+ students**.
 - At the **AI Build Challenge, Bengaluru 2026**, served as team lead and earned **1st Runner-Up** in an AI product-building sprint organized by Hackingly and Masters’ Union Ventures, with Qualcomm as industry partner.
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-skills-accent.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-skills-accent-light.svg" /><img src="./assets/section-skills-accent.svg" width="100%" alt="04 — Technical Skills" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-skills-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-skills-accent-loop-light.gif" /><img src="./assets/animated/section-skills-accent-loop-dark.gif" width="100%" alt="04 — Technical Skills" /></picture></p>
 <p align="center"><sub>LANGUAGES · AGENT FRAMEWORKS · APPLIED AI · BACKEND · RETRIEVAL</sub></p>
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/skills-grid-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/skills-grid-light.gif" /><img src="./assets/animated/skills-grid-dark.gif" width="100%" alt="Resume-aligned technical skills grouped in a six-panel animated grid" /></picture></p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-projects-accent.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-projects-accent-light.svg" /><img src="./assets/section-projects-accent.svg" width="100%" alt="05 — Featured Projects" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-projects-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-projects-accent-loop-light.gif" /><img src="./assets/animated/section-projects-accent-loop-dark.gif" width="100%" alt="05 — Featured Projects" /></picture></p>
 <p align="center"><sub>APPLIED AI · REAL-TIME SIGNALS · DECISION SUPPORT · PRIVACY-AWARE RETRIEVAL</sub></p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/project-urjanetra.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/project-urjanetra-light.svg" /><img src="./assets/project-urjanetra.svg" width="100%" alt="UrjaNetra AI — energy supply-chain risk and forecasting" /></picture></p>
@@ -113,7 +121,7 @@ My work spans **LLM orchestration, retrieval-augmented generation, semantic retr
 
 <p><a href="https://github.com/anshumanarchit-crypto/Pan-IIT"><img src="./assets/github-mark.svg" width="16" height="16" alt="GitHub" /> AyuScout AI repository</a></p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-achievements-accent.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-achievements-accent-light.svg" /><img src="./assets/section-achievements-accent.svg" width="100%" alt="06 — Achievements" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-achievements-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-achievements-accent-loop-light.gif" /><img src="./assets/animated/section-achievements-accent-loop-dark.gif" width="100%" alt="06 — Achievements" /></picture></p>
 
 <table width="100%">
   <tr>
@@ -129,21 +137,9 @@ My work spans **LLM orchestration, retrieval-augmented generation, semantic retr
 - **5-Star MySQL Badge** — HackerRank.
 - Participant — Bangalore Tech Summit Developer Challenge, KJU Hackathon and Hack-A-League 4.0.
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-snake-accent.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-snake-accent-light.svg" /><img src="./assets/section-snake-accent.svg" width="100%" alt="Contribution Snake" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/section-snake-accent-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/section-snake-accent-loop-light.gif" /><img src="./assets/animated/section-snake-accent-loop-dark.gif" width="100%" alt="Contribution Snake" /></picture></p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/anshumanarchit-crypto/anshumanarchit-crypto/output/github-snake-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/anshumanarchit-crypto/anshumanarchit-crypto/output/github-snake.svg" /><img src="https://raw.githubusercontent.com/anshumanarchit-crypto/anshumanarchit-crypto/output/github-snake.svg" width="100%" alt="Animated contribution snake for anshumanarchit-crypto" /></picture></p>
-
----
-
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/section-experience.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/section-experience-light.svg" /><img src="./assets/section-experience.svg" width="100%" alt="07 — Education" /></picture></p>
-
-### Dr. Ambedkar Institute of Technology, Bengaluru
-**Bachelor of Engineering · Computer Science & Engineering**  
-2023–2027 · **CGPA: 8.14/10**
-
-### The Aditya Birla Public School
-- Class XII (Science) · **79.6%** · 2023
-- Class X · **84%** · 2021
 
 ---
 

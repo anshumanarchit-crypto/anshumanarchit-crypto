@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="66" viewBox="0 0 1200 66" role="img" aria-labelledby="title desc">
+<title id="title">Archit Anshuman — rotating professional tagline</title>
+<desc id="desc">A theme-aware animated tagline cycling between agentic AI workflows, NLP automation, and explainable AI systems.</desc>
+<defs>
+ <linearGradient id="taglineGradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#82A8FF"/><stop offset=".48" stop-color="#55D6FF"/><stop offset="1" stop-color="#B5A2FF"/></linearGradient>
+ <linearGradient id="taglineRule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#82A8FF" stop-opacity="0"/><stop offset=".5" stop-color="#55D6FF" stop-opacity=".72"/><stop offset="1" stop-color="#B5A2FF" stop-opacity="0"/></linearGradient>
+</defs>
+<style>
+ .phrase{font-family:'Segoe UI',Arial,sans-serif;font-size:21px;font-weight:650;letter-spacing:1.75px;fill:url(#taglineGradient)}
+ .rule{stroke-dasharray:700;stroke-dashoffset:700;animation:ruleDraw 9s ease-in-out infinite}
+ .spark{animation:sparkTravel 4.5s ease-in-out infinite alternate}
+ @keyframes ruleDraw{0%,5%{stroke-dashoffset:700;opacity:.2}30%,57%{stroke-dashoffset:0;opacity:.8}100%{stroke-dashoffset:-700;opacity:.15}}
+ @keyframes sparkTravel{from{transform:translateX(0);opacity:.2}to{transform:translateX(680px);opacity:1}}
+ @media (prefers-reduced-motion:reduce){.rule,.spark{animation:none}.rule{stroke-dashoffset:0}.spark{opacity:.5}}
+</style>
+<!-- First phrase stays visible if a renderer disables SVG animation. -->
+<text class="phrase" x="600" y="30" text-anchor="middle" opacity="1">BUILDING AGENTIC AI WORKFLOWS<animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.24;.29;.95;1" dur="12s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 -5;0 -5;0 0" keyTimes="0;.24;.29;.95;1" dur="12s" repeatCount="indefinite"/></text>
+<text class="phrase" x="600" y="30" text-anchor="middle" opacity="0">ENGINEERING NLP AUTOMATION<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.28;.33;.57;.62;1" dur="12s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 5;0 5;0 0;0 0;0 -5;0 -5" keyTimes="0;.28;.33;.57;.62;1" dur="12s" repeatCount="indefinite"/></text>
+<text class="phrase" x="600" y="30" text-anchor="middle" opacity="0">BUILDING EXPLAINABLE AI SYSTEMS<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.61;.66;.94;1" dur="12s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 5;0 5;0 0;0 0;0 -5" keyTimes="0;.61;.66;.94;1" dur="12s" repeatCount="indefinite"/></text>
+<path d="M170 48 H1030" stroke="url(#taglineRule)" stroke-width="1.2" stroke-linecap="round"/>
+<path class="rule" d="M260 48 H940" stroke="url(#taglineGradient)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+<circle class="spark" cx="260" cy="48" r="2.2" fill="#55D6FF"/>
+</svg>

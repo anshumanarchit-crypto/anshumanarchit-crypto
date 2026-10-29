@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="142" viewBox="0 0 840 142" role="img" aria-label="Winner — AI for Bharat Hackathon">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F766E"/><stop offset="1" stop-color="#2563EB"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<path d="M22 110 C145 138 230 122 340 122 S590 137 816 103" fill="none" stroke="url(#g)" stroke-width="2" opacity="0.8"/>
+<circle cx="75" cy="60" r="40" fill="url(#g)" fill-opacity="0.18" stroke="#2DD4BF" stroke-width="1.5"/>
+<path d="M60 38H90V49Q90 69 75 73Q60 69 60 49Z" fill="none" stroke="#2DD4BF" stroke-width="3" stroke-linejoin="round"/><path d="M60 45H50V50Q50 62 64 63 M90 45H100V50Q100 62 86 63 M75 73V83 M63 86H87" fill="none" stroke="#2DD4BF" stroke-width="3" stroke-linecap="round"/>
+<text x="140" y="39" fill="#2DD4BF" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2">HACKATHON WINNER</text>
+<text x="140" y="68" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">AI for Bharat Hackathon</text>
+<text x="140" y="96" fill="#94A3B8" font-family="Segoe UI, Arial, sans-serif" font-size="16">HackerEarth · Government of Karnataka</text>
+<line x1="565" y1="28" x2="565" y2="104" stroke="#334155" stroke-width="1.5"/>
+<text x="600" y="66" fill="#60A5FA" font-family="Segoe UI, Arial, sans-serif" font-size="45" font-weight="800" filter="url(#glow)">WINNER</text>
+<text x="602" y="91" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">AI INNOVATION</text>
+<circle id="achievement-loop-dot" cx="30" cy="110" r="3.2" fill="#22D3EE"><animateMotion dur="7s" repeatCount="indefinite" path="M 22,110 C 145,138 230,122 340,122 S590,137 816,103"/><animate attributeName="r" values="2.2;3.8;2.2" dur="2.8s" repeatCount="indefinite"/></circle><circle id="loop-spark-injected" cx="24" cy="113.6" r="3.0" fill="#22D3EE"><animateMotion dur="6s" repeatCount="indefinite" path="M 20,113.6 L 820.0,113.6"/><animate attributeName="r" values="2.2;4.0;2.2" dur="2.5s" repeatCount="indefinite"/></circle></svg>

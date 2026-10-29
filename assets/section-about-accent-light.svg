@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="72" viewBox="0 0 1000 72" role="img" aria-label="01 About">
+  <defs>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#60A5FA"/><stop offset="0.65" stop-color="#AFC0D4"/><stop offset="1" stop-color="#DCE7F4"/></linearGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="titleFlow" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#60A5FA"/><stop offset="50%" stop-color="#22D3EE"/><stop offset="100%" stop-color="#60A5FA"/><animate attributeName="x1" values="0%;100%;0%" dur="7s" repeatCount="indefinite"/><animate attributeName="x2" values="100%;200%;100%" dur="7s" repeatCount="indefinite"/></linearGradient></defs>
+  <rect x="10" y="11" width="56" height="34" rx="9" fill="#60A5FA" fill-opacity="0.16" stroke="#60A5FA" stroke-opacity="0.75"/>
+  <text x="38" y="33" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1" fill="#60A5FA" text-anchor="middle">01</text>
+  <g transform="translate(91 29)"><circle cx="0" cy="0" r="7" fill="none" stroke="#60A5FA" stroke-width="2"/><circle cx="0" cy="0" r="2.2" fill="#60A5FA"/></g>
+  <text x="118" y="34" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="2.2" fill="url(#titleFlow)">ABOUT<animate attributeName="opacity" values="0.86;1;0.86" dur="4.6s" repeatCount="indefinite"/></text>
+  <path d="M118 52 H986" stroke="url(#line)" stroke-width="1.4"/>
+  <circle cx="986" cy="52" r="3" fill="#60A5FA" filter="url(#glow)">
+    <animate attributeName="r" values="2.2;4;2.2" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.65;1;0.65" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M118 52 H986" stroke="#60A5FA" stroke-width="1.2" stroke-dasharray="90 900" stroke-linecap="round" opacity="0.9">
+    <animate attributeName="stroke-dashoffset" from="990" to="0" dur="5s" repeatCount="indefinite"/>
+  </path>
+<circle id="loop-travel-dot" r="3.1" cx="118" cy="52" fill="#60A5FA" filter="url(#glow)" opacity="0.96"><animateMotion dur="6.2s" repeatCount="indefinite" path="M 118,52 L 986,52" /><animate attributeName="r" values="2.2;3.8;2.2" dur="2.6s" repeatCount="indefinite" /></circle></svg>

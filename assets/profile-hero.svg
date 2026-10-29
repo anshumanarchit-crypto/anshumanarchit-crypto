@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="238" viewBox="0 0 1200 238" role="img" aria-labelledby="title desc">
+<title id="title">Archit Anshuman — AI Engineering Intern, Agentic AI, NLP and RAG</title>
+<desc id="desc">A transparent hero with elegant italic serif lettering, midnight blue and periwinkle accents, and subtle animated light trails.</desc>
+<defs>
+ <radialGradient id="heroHalo"><stop offset="0" stop-color="#4567B7" stop-opacity=".12"/><stop offset=".58" stop-color="#253D76" stop-opacity=".035"/><stop offset="1" stop-color="#0A0F1E" stop-opacity="0"/></radialGradient>
+ <linearGradient id="heroName" x1=".08" y1="0" x2=".94" y2="0"><stop offset="0" stop-color="#F4F7FF"/><stop offset=".34" stop-color="#A9C7FF"/><stop offset=".68" stop-color="#78DDF7"/><stop offset="1" stop-color="#B5A2FF"/></linearGradient>
+ <linearGradient id="heroRule" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#82A8FF" stop-opacity="0"/><stop offset=".3" stop-color="#82A8FF" stop-opacity=".8"/><stop offset=".68" stop-color="#55D6FF" stop-opacity=".8"/><stop offset="1" stop-color="#B5A2FF" stop-opacity="0"/></linearGradient>
+ <radialGradient id="orbital"><stop offset="0" stop-color="#55D6FF" stop-opacity=".10"/><stop offset="1" stop-color="#55D6FF" stop-opacity="0"/></radialGradient>
+ <filter id="wordGlow" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="1.8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+ .halo{animation:haloDrift 11s ease-in-out infinite alternate;transform-origin:center}
+ .word{opacity:1;animation:wordIn 1.1s cubic-bezier(.2,.8,.2,1) .1s forwards}
+ .role{opacity:1;animation:roleIn .8s ease-out .45s forwards}
+ .micro{opacity:1;animation:roleIn .8s ease-out .72s forwards}
+ .beam{stroke-dasharray:520;stroke-dashoffset:520;animation:beamIn 1.8s ease-out .55s forwards}
+ .spark{animation:sparkMove 6s ease-in-out infinite alternate}
+ @keyframes haloDrift{from{transform:translate(-26px,2px) scale(.96)}to{transform:translate(30px,-6px) scale(1.05)}}
+ @keyframes wordIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+ @keyframes roleIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+ @keyframes beamIn{to{stroke-dashoffset:0}}
+ @keyframes sparkMove{from{opacity:.25;transform:translateX(-12px)}to{opacity:.95;transform:translateX(12px)}}
+ @media (prefers-reduced-motion:reduce){.halo,.word,.role,.micro,.beam,.spark{animation:none!important;opacity:1;transform:none;stroke-dashoffset:0}}
+</style>
+<!-- Transparent canvas blends into GitHub's page; only typography, fine trails, and small orbital accents are drawn. -->
+<circle cx="128" cy="60" r="18" fill="none" stroke="#82A8FF" stroke-opacity=".20" stroke-width="1"/><circle cx="128" cy="60" r="2" fill="#82A8FF"/><circle cx="1072" cy="54" r="24" fill="none" stroke="#55D6FF" stroke-opacity=".18" stroke-width="1"/><circle cx="1072" cy="54" r="2" fill="#55D6FF"/>
+<path d="M70 182 C230 164 304 204 440 188 S690 177 812 190 S1010 205 1130 178" fill="none" stroke="#42608B" stroke-opacity=".28" stroke-width="1.2"/>
+<path d="M76 190 C240 174 310 211 450 194 S690 185 820 196 S1008 209 1124 185" fill="none" stroke="url(#heroRule)" stroke-opacity=".8" stroke-width="1.6"/>
+<g class="word" filter="url(#wordGlow)"><text x="600" y="100" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-style="italic" font-weight="600" letter-spacing=".5" fill="url(#heroName)">Archit Anshuman</text></g>
+<g class="role" font-family="'Segoe UI', Arial, sans-serif"><text x="310" y="139" font-size="17" font-weight="650" letter-spacing=".7" fill="#E9EEFA">TEAM LEAD <tspan fill="#82A8FF">·</tspan> FULL-STACK DEVELOPER <tspan fill="#55D6FF">·</tspan> AI PRODUCT ENGINEERING</text></g>
+<g class="micro" font-family="'Segoe UI', Arial, sans-serif"><text x="350" y="166" font-size="11" font-weight="600" letter-spacing="2.05" fill="#A9B5CA">AGENT WORKFLOWS  ·  NLP AUTOMATION  ·  EXPLAINABLE AI</text></g>
+<path class="beam" d="M280 211 H920" stroke="url(#heroRule)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+<circle class="spark" cx="280" cy="211" r="2.5" fill="#55D6FF"/>
+</svg>
