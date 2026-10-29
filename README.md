@@ -64,7 +64,7 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/activity-graph-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/activity-graph-light.gif" /><img src="./assets/animated/activity-graph-dark.gif" width="100%" alt="Animated GitHub activity line chart for the last 31 days" /></picture></p>
 
 <p align="center"><sub>ANNUAL CONTRIBUTION HEATMAP</sub></p>
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/contribution-heatmap-column-reveal-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/contribution-heatmap-column-reveal-light.gif" /><img src="./assets/animated/contribution-heatmap-column-reveal-dark.gif" width="100%" alt="Transparent annual contribution heatmap; cells reveal from left to right, one week column at a time" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/annual-heatmap-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/annual-heatmap-light.gif" /><img src="./assets/animated/annual-heatmap-dark.gif" width="100%" alt="Animated full-width annual GitHub contribution heatmap for anshumanarchit-crypto" /></picture></p>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
