@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="210" viewBox="0 0 580 210" role="img"><title>achievement ai for bharat light</title><style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      .mono { font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace; }
+      .pulse { animation: pulse 2.8s ease-in-out infinite; transform-origin:center; }
+      .dash { stroke-dasharray: 12 14; animation: travel 14s linear infinite; }
+      .rise { opacity:1; animation: rise .7s ease-out both; }
+      .bar { transform-box: fill-box; transform-origin: bottom; animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }
+      @keyframes pulse { 0%,100% { opacity:.55; } 50% { opacity:1; } }
+      @keyframes travel { to { stroke-dashoffset:-520; } }
+      @keyframes rise { from { opacity:.45; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
+      @keyframes grow { from { transform:scaleY(.08); opacity:.35; } to { transform:scaleY(1); opacity:1; } }
+      
+    </style><rect width="580" height="210" rx="18" fill="#FFFFFF" stroke="#D5E1EF"/><rect x="0" y="0" width="580" height="5" rx="2" fill="#087F78"/><circle cx="500" cy="100" r="47" fill="#EAF1F9" stroke="#D5E1EF"/><path d="M500 69 L508 88 L529 90 L513 104 L518 125 L500 114 L482 125 L487 104 L471 90 L492 88 Z" fill="#AD5A1A" fill-opacity=".85" class="pulse"/><text x="24" y="38" font-size="10" fill="#087F78" font-weight="750" text-anchor="start" letter-spacing="1.1" class="mono">HACKATHON WIN</text><text x="24" y="76" font-size="23" fill="#172941" font-weight="800" text-anchor="start" letter-spacing=".6" class="">AI FOR BHARAT</text><text x="24" y="103" font-size="15" fill="#AD5A1A" font-weight="750" text-anchor="start" letter-spacing="0" class="">Winner</text><text x="24" y="132" font-size="11" fill="#60748D" font-weight="550" text-anchor="start" letter-spacing="0" class="">HackerEarth  ×  Government of Karnataka</text><text x="24" y="173" font-size="10" fill="#60748D" font-weight="650" text-anchor="start" letter-spacing="0" class="mono">AI FOR INDIA  /  REAL-WORLD INNOVATION</text><path d="M24 188 H420" stroke="#D5E1EF"/><path d="M24 188 H180" stroke="#087F78" stroke-width="2" class="dash"/></svg>

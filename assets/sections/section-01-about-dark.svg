@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="48" viewBox="0 0 1200 48" role="img"><title>section 01 about dark</title><style>
+      text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+      .mono { font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace; }
+      .pulse { animation: pulse 2.8s ease-in-out infinite; transform-origin:center; }
+      .dash { stroke-dasharray: 12 14; animation: travel 14s linear infinite; }
+      .rise { opacity:1; animation: rise .7s ease-out both; }
+      .bar { transform-box: fill-box; transform-origin: bottom; animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }
+      @keyframes pulse { 0%,100% { opacity:.55; } 50% { opacity:1; } }
+      @keyframes travel { to { stroke-dashoffset:-520; } }
+      @keyframes rise { from { opacity:.45; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
+      @keyframes grow { from { transform:scaleY(.08); opacity:.35; } to { transform:scaleY(1); opacity:1; } }
+      
+    </style><rect x="0.5" y="1" width="1199" height="46" rx="11" fill="#101B2D" stroke="#243956"/><rect x="0.5" y="1" width="4" height="46" rx="2" fill="#51D9C4"/><text x="22" y="30" font-size="12" fill="#FFB86B" font-weight="750" text-anchor="start" letter-spacing="1" class="mono">01</text><line x1="57" y1="10" x2="57" y2="38" stroke="#243956" stroke-width="1.2"/><text x="76" y="30" font-size="15" fill="#F1F6FF" font-weight="750" text-anchor="start" letter-spacing=".75" class="">ABOUT</text><text x="1175" y="29" font-size="11" fill="#9CB0CA" font-weight="500" text-anchor="end" letter-spacing="0" class="mono">Engineering with context</text><path d="M1035 40 H1135" stroke="#5B8CFF" stroke-width="1.5" stroke-linecap="round" class="dash"/></svg>

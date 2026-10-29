@@ -1,7 +1,4 @@
-
-name: Update profile art
-
-# Refreshes the contribution graph SVG daily from real data.
+name: Refresh profile visuals
 
 "on":
   schedule:
@@ -14,31 +11,23 @@ permissions:
   contents: write
 
 jobs:
-  heatmap:
+  refresh:
     runs-on: ubuntu-latest
-
-    # Your GitHub account
     env:
       GH_PROFILE_USER: anshumanarchit-crypto
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Install dependencies
+      - name: Install scraper dependencies
         run: python -m pip install -r scripts/requirements.txt
-
-      - name: Scrape real contribution data
+      - name: Fetch real contribution data
         run: python scripts/fetch_contributions.py
-
-      - name: Render animated contribution graph SVG
-        run: python scripts/render_heatmap_svg.py
-
-      - name: Commit updated art
+      - name: Generate and validate theme-aware SVGs
+        run: python scripts/generate_profile_assets.py
+      - name: Commit refreshed activity visuals
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: refresh contribution graph [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg"
+          commit_message: "chore: refresh profile activity visuals [skip ci]"
+          file_pattern: "data/contributions.json contrib-heatmap.svg contrib-heatmap-light.svg stats.svg stats-light.svg assets/animated/activity-graph-dark.svg assets/animated/activity-graph-light.svg"
