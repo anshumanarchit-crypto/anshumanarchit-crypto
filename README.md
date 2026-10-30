@@ -68,8 +68,8 @@ Class XII (Science) · **79.6%** · 2023 · Class X · **84%** · 2021
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="30%" align="center" valign="middle"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-photo-ascii-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-photo-ascii-light.gif" /><img src="./assets/animated/profile-photo-ascii-dark.gif" width="100%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture></td>
-    <td width="70%" align="center" valign="middle"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/stats-card-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/stats-card-loop-light.gif" /><img src="./assets/animated/stats-card-loop-dark.gif" width="100%" alt="Looping contribution dashboard: metrics count up, disappear row-wise, and monthly bars redraw" /></picture></td>
+    <td width="40%" align="center" valign="middle"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/profile-photo-ascii-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/profile-photo-ascii-light.gif" /><img src="./assets/animated/profile-photo-ascii-dark.gif" width="100%" alt="Animated ASCII portrait generated from Archit Anshuman's real photo" /></picture></td>
+    <td width="60%" align="center" valign="middle"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/animated/stats-card-loop-dark.gif" /><source media="(prefers-color-scheme: light)" srcset="./assets/animated/stats-card-loop-light.gif" /><img src="./assets/animated/stats-card-loop-dark.gif" width="100%" alt="Looping contribution dashboard: metrics count up, disappear row-wise, and monthly bars redraw" /></picture></td>
   </tr>
 </table>
 

@@ -85,8 +85,8 @@ def update_portrait_stats(block: str) -> str:
     return (
         '<table width="100%" border="0" cellpadding="0" cellspacing="0">\n'
         '  <tr>\n'
-        '    <td width="30%" align="center" valign="middle">' + portrait + '</td>\n'
-        '    <td width="70%" align="center" valign="middle">' + stats + '</td>\n'
+        '    <td width="40%" align="center" valign="middle">' + portrait + '</td>\n'
+        '    <td width="60%" align="center" valign="middle">' + stats + '</td>\n'
         '  </tr>\n'
         '</table>'
     )

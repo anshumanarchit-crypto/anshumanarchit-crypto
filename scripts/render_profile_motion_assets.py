@@ -170,7 +170,7 @@ def gif_palettize(frame: Image.Image, transparent: bool = False) -> Image.Image:
     return pal
 
 
-def save_gif(frames: list[Image.Image], path: Path, duration: int = 90, transparent: bool = False) -> None:
+def save_gif(frames: list[Image.Image], path: Path, duration: int = 150, transparent: bool = False) -> None:
     if not frames:
         raise ValueError(f"No frames provided for {path}")
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -199,8 +199,6 @@ def achievement_frames(item: dict, theme_name: str) -> list[Image.Image]:
         x = 390 + i * 62
         d.line((x, 18, x + 40, 18), fill=blend(t["bg1"], accent, 0.11), width=1)
         d.ellipse((x + 37, 15, x + 43, 21), fill=blend(t["bg1"], accent, 0.23))
-    d.line((32, 173, W - 30, 173), fill=t["track"], width=2)
-    d.line((32, 185, W - 30, 185), fill=blend(t["bg1"], accent, 0.12), width=1)
     # Icon medallion.
     cx, cy = 88, 91
     d.ellipse((cx - 43, cy - 43, cx + 43, cy + 43), fill=t["tile"], outline=blend(t["bg1"], accent, 0.48), width=2)
@@ -224,19 +222,9 @@ def achievement_frames(item: dict, theme_name: str) -> list[Image.Image]:
     for k in range(N):
         fr = base.copy()
         dr = ImageDraw.Draw(fr)
-        progress = k / (N - 1)
-        # Sweep runs over a slim track; the moving dot creates a clear but restrained loop.
-        line_x = 34 + int((W - 74) * progress)
-        glow_left = max(34, line_x - 76)
-        glow_right = min(W - 35, line_x + 76)
-        dr.line((glow_left, 173, glow_right, 173), fill=accent, width=3)
-        dr.ellipse((line_x - 5, 168, line_x + 5, 178), fill=accent)
-        # Gentle breathing ring around the card's icon.
+        # Keep a quiet, contained pulse around the medallion; no long sweep line or travelling dot.
         pulse = int(2 + 3 * (0.5 + 0.5 * math.sin((k / N) * 2 * math.pi)))
         dr.ellipse((88 - 44 - pulse, 91 - 44 - pulse, 88 + 44 + pulse, 91 + 44 + pulse), outline=blend(t["bg1"], accent, 0.6), width=1)
-        # Traveling signal dot along the header circuitry.
-        dot_x = 500 + int(420 * progress)
-        dr.ellipse((dot_x - 3, 14, dot_x + 3, 20), fill=accent)
         frames.append(fr)
     return frames
 
@@ -281,14 +269,8 @@ def leadership_frames(theme_name: str) -> list[Image.Image]:
     for k in range(N):
         fr = base.copy()
         dr = ImageDraw.Draw(fr)
-        progress = k / (N - 1)
-        start_x = 46 + int(515 * progress)
-        dr.line((46, 226, start_x, 226), fill=t["cyan"], width=3)
-        dr.ellipse((start_x - 5, 221, start_x + 5, 231), fill=t["cyan"])
-        # Moving light travels across the three metric panels, reinforcing a continuous loop.
-        px = 640 + int(500 * progress)
-        dr.ellipse((px - 4, 18, px + 4, 26), fill=t["cyan"])
-        # Small pulse on 500+ panel.
+        progress = k / max(1, N - 1)
+        # A slow pulse remains on the 500+ impact tile; no horizontal sweep or travelling signal.
         r = int(3 + 2 * (0.5 + 0.5 * math.sin(progress * math.pi * 2)))
         dr.ellipse((716 - r, 58 - r, 716 + r, 58 + r), outline=t["teal"], width=1)
         frames.append(fr)
@@ -480,16 +462,16 @@ def render_all() -> None:
     for theme in ("dark", "light"):
         for item in ACHIEVEMENTS:
             path = OUT / f"achievement-{item['slug']}-{theme}.gif"
-            save_gif(achievement_frames(item, theme), path, duration=85)
+            save_gif(achievement_frames(item, theme), path, duration=150)
             print(f"Wrote {path.relative_to(ROOT)} ({1120} x {206}; animated achievement card)")
         lead_path = OUT / f"leadership-tech-club-{theme}.gif"
-        save_gif(leadership_frames(theme), lead_path, duration=90)
+        save_gif(leadership_frames(theme), lead_path, duration=150)
         print(f"Wrote {lead_path.relative_to(ROOT)} (1200 x 294; animated leadership banner)")
         heat_path = OUT / f"contribution-heatmap-column-reveal-{theme}.gif"
-        save_gif(heatmap_frames(data, theme), heat_path, duration=80, transparent=True)
+        save_gif(heatmap_frames(data, theme), heat_path, duration=150, transparent=True)
         print(f"Wrote {heat_path.relative_to(ROOT)} (transparent background; left-to-right column reveal)")
         stats_path = OUT / f"stats-card-loop-{theme}.gif"
-        save_gif(stats_frames(data, theme), stats_path, duration=95)
+        save_gif(stats_frames(data, theme), stats_path, duration=150)
         print(f"Wrote {stats_path.relative_to(ROOT)} (count-up, row-wise value reveal/hide, recurring bar redraw)")
 
 
